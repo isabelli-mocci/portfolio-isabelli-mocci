@@ -1,0 +1,130 @@
+/* path: src/index.css */
+
+/* --- PP Neue Montreal Font Import --- */
+
+/** Thin */
+@font-face {
+  font-family: 'PP Neue Montreal Thin';
+  font-style: normal;
+  font-weight: 300;
+  src: local('PP Neue Montreal Thin'), url('/src/assets/fonts/pp-neue/ppneuemontreal-thin.woff') format('woff');
+  font-display: swap;
+}
+
+/** Regular */
+@font-face {
+  font-family: 'PP Neue Montreal Book';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PP Neue Montreal Book'), url('/src/assets/fonts/pp-neue/ppneuemontreal-book.woff') format('woff');
+  font-display: swap;
+}
+
+/** Italic */
+@font-face {
+  font-family: 'PP Neue Montreal Italic';
+  font-style: italic;
+  font-weight: 400;
+  src: local('PP Neue Montreal Italic'), url('/src/assets/fonts/pp-neue/ppneuemontreal-italic.woff') format('woff');
+  font-display: swap;
+}
+
+/** Medium */
+@font-face {
+  font-family: 'PP Neue Montreal Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: local('PP Neue Montreal Medium'), url('/src/assets/fonts/pp-neue/ppneuemontreal-medium.woff') format('woff');
+  font-display: swap;
+}
+
+/** Semibold Italic */
+@font-face {
+  font-family: 'PP Neue Montreal SemiBold italic';
+  font-style: italic;
+  font-weight: 600;
+  src: local('PP Neue Montreal SemiBold italic'), url('/src/assets/fonts/pp-neue/ppneuemontreal-semibolditalic.woff') format('woff');
+  font-display: swap;
+}
+
+/** Bold */
+@font-face {
+  font-family: 'PP Neue Montreal Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PP Neue Montreal Bold'), url('/src/assets/fonts/pp-neue/ppneuemontreal-bold.woff') format('woff');
+  font-display: swap;
+}
+
+/* --- Tailwind CSS Directives --- */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Global Styles --- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg-dark text-text-white font-sans;
+  font-family: 'PP Neue Montreal', sans-serif;
+}
+
+/**  scroll girando */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 6s linear infinite;
+}
+
+/** Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.skew-marquee {
+  transform: skewX(-8deg);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar for modal image area */
+.custom-scrollbar-modal {
+  scrollbar-width: thin;
+  scrollbar-color: #b0e57c #23221f;
+}
+.custom-scrollbar-modal::-webkit-scrollbar {
+  width: 8px;
+  background: #23221f;
+}
+.custom-scrollbar-modal::-webkit-scrollbar-thumb {
+  background: #b0e57c;
+  border-radius: 8px;
+  border: 2px solid #23221f;
+}
+.custom-scrollbar-modal::-webkit-scrollbar-track {
+  background: #23221f;
+  border-radius: 8px;
+}
