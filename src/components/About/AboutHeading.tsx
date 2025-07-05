@@ -1,6 +1,8 @@
 import { ABOUT_SECTION_CONFIG } from '../../config/aboutSection.config';
 import { RayIconDecorator } from './RayIconDecorator';
 
+const DECORATED_LETTERS = ['b', 'o'] as const;
+
 export const AboutHeading = () => {
   const { heading: headingConfig } = ABOUT_SECTION_CONFIG.layout;
   
@@ -8,24 +10,26 @@ export const AboutHeading = () => {
     <h2
       id="about-heading"
       className="text-primary-color mb-0 leading-none text-left relative"
-      style={{
-        fontSize: headingConfig.fontSize,
-        lineHeight: headingConfig.lineHeight,
-        letterSpacing: headingConfig.letterSpacing,
-        textShadow: headingConfig.textShadow,
-      }}
+      style={headingConfig}
     >
-      <span style={{ position: 'relative', display: 'inline-block' }}>
-        A
-        <CharacterWithRay letter="b" />
-        <CharacterWithRay letter="o" />
-        ut
-      </span>
+      <HeadingContent />
     </h2>
   );
 };
 
-const CharacterWithRay = ({ letter }: { letter: string }) => (
+const HeadingContent = () => (
+  <span style={{ position: 'relative', display: 'inline-block' }}>
+    A{DECORATED_LETTERS.map(letter => (
+      <CharacterWithRay key={letter} letter={letter} />
+    ))}ut
+  </span>
+);
+
+interface CharacterWithRayProps {
+  letter: string;
+}
+
+const CharacterWithRay = ({ letter }: CharacterWithRayProps) => (
   <span style={{ position: 'relative', display: 'inline-block' }}>
     {letter}
     <RayIconDecorator />

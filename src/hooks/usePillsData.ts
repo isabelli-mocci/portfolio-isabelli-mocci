@@ -1,23 +1,35 @@
 import { useMemo } from 'react';
 import { pillsData, pillsPositions } from '../types/pillsData';
-import type { PillData } from '../types/aboutSection.types';
-import { validatePillData, validatePillPosition } from '../utils/aboutSection.utils';
+import type { PillData, PillPosition, PillWithPosition } from '../types/aboutSection.types';
+import { validatePillData, validatePillPosition, createPillWithPosition } from '../utils/aboutSection.utils';
 
-export const usePillsData = () => {
-  const validatedPills = useMemo(() => {
-    return pillsData.filter(validatePillData);
-  }, []);
+interface PillsDataResult {
+  readonly pillsWithPositions: readonly PillWithPosition[];
+  readonly totalPills: number;
+  readonly totalPositions: number;
+}
 
-  const validatedPositions = useMemo(() => {
-    return pillsPositions.filter(validatePillPosition);
-  }, []);
+export const usePillsData = (): PillsDataResult => {
+  const validatedPills = useMemo(() => 
+    pillsData.filter(validatePillData) as readonly PillData[]
+  , []);
+
+  const validatedPositions = useMemo(() => 
+    pillsPositions.filter(validatePillPosition) as readonly PillPosition[]
+  , []);
 
   const pillsWithPositions = useMemo(() => {
-    return validatedPills.map((pill: PillData, index: number) => ({
-      pill,
-      position: validatedPositions[index % validatedPositions.length],
-      index
-    }));
+    if (validatedPositions.length === 0) {
+      return [];
+    }
+    
+    return validatedPills.map((pill, index) => 
+      createPillWithPosition(
+        pill,
+        validatedPositions[index % validatedPositions.length],
+        index
+      )
+    );
   }, [validatedPills, validatedPositions]);
 
   return {

@@ -1,63 +1,92 @@
 export interface PillData {
-  text: string;
-  initialRotation: number;
-  initialX?: string;
-  initialY?: string;
+  readonly text: string;
+  readonly initialRotation: number;
+  readonly initialX?: string;
+  readonly initialY?: string;
 }
 
 export interface PillPosition {
-  left: string;
-  top: string;
+  readonly left: string;
+  readonly top: string;
 }
 
-export interface AnimationConfig {
-  momentum: boolean;
-  elastic: number;
-  transition: {
-    bounceStiffness: number;
-    bounceDamping: number;
-  };
+export interface PillWithPosition {
+  readonly pill: PillData;
+  readonly position: PillPosition;
+  readonly index: number;
+}
+
+export interface DragAnimationConfig {
+  readonly momentum: boolean;
+  readonly elastic: number;
+  readonly transition: BounceTransitionConfig;
+}
+
+export interface BounceTransitionConfig {
+  readonly bounceStiffness: number;
+  readonly bounceDamping: number;
+}
+
+export interface PillAnimationConfig {
+  readonly delayMultiplier: number;
+}
+
+export interface AnimationsConfig {
+  readonly drag: DragAnimationConfig;
+  readonly pill: PillAnimationConfig;
+}
+
+export interface ContainerDimensions {
+  readonly minWidth: string;
+  readonly width: string;
+  readonly maxWidth: string;
+  readonly height: string;
+}
+
+export interface ResponsiveMinHeight {
+  readonly mobile: string;
+  readonly desktop: string;
+}
+
+export interface PillsContainerConfig extends ContainerDimensions {
+  readonly minHeight: ResponsiveMinHeight;
+}
+
+export interface HeadingLayoutConfig {
+  readonly fontSize: string;
+  readonly lineHeight: number;
+  readonly letterSpacing: string;
+  readonly textShadow: string;
+}
+
+export interface IconPosition {
+  readonly left: string;
+  readonly top: string;
+}
+
+export interface RayIconConfig {
+  readonly size: string;
+  readonly position: IconPosition;
+}
+
+export interface PillsLayoutConfig {
+  readonly container: PillsContainerConfig;
 }
 
 export interface LayoutConfig {
-  pills: {
-    container: {
-      minWidth: string;
-      width: string;
-      maxWidth: string;
-      height: string;
-      minHeight: {
-        mobile: string;
-        desktop: string;
-      };
-    };
-  };
-  heading: {
-    fontSize: string;
-    lineHeight: number;
-    letterSpacing: string;
-    textShadow: string;
-  };
-  rayIcon: {
-    size: string;
-    position: {
-      left: string;
-      top: string;
-    };
-  };
+  readonly pills: PillsLayoutConfig;
+  readonly heading: HeadingLayoutConfig;
+  readonly rayIcon: RayIconConfig;
+}
+
+export interface ZIndexConfig {
+  readonly base: number;
+  readonly content: number;
+  readonly pills: number;
 }
 
 export interface AboutSectionConfig {
-  animations: {
-    drag: AnimationConfig;
-    pill: {
-      delayMultiplier: number;
-    };
-  };
-  layout: LayoutConfig;
-  zIndex: {
-    base: number;
-    content: number;
-    pills: number;
-  };
+  readonly animations: AnimationsConfig;
+  readonly layout: LayoutConfig;
+  readonly zIndex: ZIndexConfig;
 }
