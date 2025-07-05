@@ -15,7 +15,7 @@ export const InteractivePillsContainer = () => {
   
   return (
     <div
-      className="relative flex-1 min-h-[300px] md:min-h-[500px] w-full mt-4 md:mt-0"
+      className="relative flex-1 min-h-[150px] md:min-h-[200px] w-full mt-4 md:mt-0"
       style={containerStyles}
     >
       <PillsArea>

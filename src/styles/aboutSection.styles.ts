@@ -24,13 +24,13 @@ export const aboutSectionStyles = {
   `,
   
   container: `
-    ${COMMON_STYLES.fullSize} flex flex-row
+    w-full flex flex-row
     ${buildResponsiveClass('items-start', 'items-end')} justify-center 
-    relative flex-1 min-h-[80vh] ${COMMON_STYLES.responsiveSpacing}
+    relative ${COMMON_STYLES.responsiveSpacing}
   `,
   
   headingContainer: `
-    flex flex-col justify-end items-start h-full pl-4 md:pl-8 ${COMMON_STYLES.responsivePadding}
+    flex flex-col justify-end items-start pl-4 md:pl-8 ${COMMON_STYLES.responsivePadding}
     z-10 w-auto flex-shrink-0
   `,
   
@@ -44,7 +44,7 @@ export const aboutSectionStyles = {
   `,
   
   pillsContainer: `
-    relative flex-1 min-h-[300px] ${RESPONSIVE_BREAKPOINTS.desktop}min-h-[500px] 
+    relative flex-1 min-h-[300px] ${RESPONSIVE_BREAKPOINTS.desktop}min-h-[100px] 
     ${buildResponsiveClass('w-full', 'w-auto')} mt-8 ${RESPONSIVE_BREAKPOINTS.desktop}mt-0
   `,
   

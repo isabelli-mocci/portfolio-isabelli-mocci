@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+docs/AboutSection-Refactor.md
+docs/AboutTextSection-Refactor.md
+docs/WordPill-Refactor.md
+docs/Hero-Refactor.md
+docs/AnimatedStrokeSVG-Refactor.md
+docs/ContactButton-Refactor.md
+docs/HeroAnimatedWord-Refactor.md
+/docs
