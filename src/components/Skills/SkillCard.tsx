@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
 import type { SkillData } from '../../types/skills.types';
-import { SKILLS_ACCESSIBILITY } from '../../constants/skills.constants';
+
+const SKILLS_ACCESSIBILITY = {
+  SKILL_BUTTON_LABEL: (skillName: string) => `View details for ${skillName}`,
+} as const;
 
 interface SkillCardProps {
   readonly skill: SkillData;

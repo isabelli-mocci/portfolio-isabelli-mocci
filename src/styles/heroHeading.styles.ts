@@ -1,20 +1,16 @@
-import { CSS_CLASSES } from '../constants/heroHeading.constants';
+import { HERO_HEADING_CONFIG } from '../config/hero.config';
 
 export const HERO_HEADING_STYLES = {
-  container: CSS_CLASSES.CONTAINER,
+  container: HERO_HEADING_CONFIG.styling.container,
   headings: {
-    primary: CSS_CLASSES.HEADING_PRIMARY,
-    secondary: CSS_CLASSES.HEADING_SECONDARY,
-    highlight: CSS_CLASSES.HIGHLIGHT,
+    primary: HERO_HEADING_CONFIG.styling.headingPrimary,
+    secondary: HERO_HEADING_CONFIG.styling.headingSecondary,
+    highlight: HERO_HEADING_CONFIG.styling.highlight,
   },
   icons: {
-    base: CSS_CLASSES.ICON_WRAPPER_BASE,
-    left: CSS_CLASSES.ICON_LEFT,
-    right: CSS_CLASSES.ICON_RIGHT,
-  },
-  ray: {
-    container: CSS_CLASSES.RAY_CONTAINER,
-    positioned: CSS_CLASSES.RAY_POSITIONED,
+    base: HERO_HEADING_CONFIG.styling.iconWrapper.base,
+    left: HERO_HEADING_CONFIG.styling.iconWrapper.positions.left,
+    right: HERO_HEADING_CONFIG.styling.iconWrapper.positions.right,
   },
 } as const;
 
