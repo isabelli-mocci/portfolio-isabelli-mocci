@@ -1,6 +1,5 @@
-// path: src/App.tsx
 
-import NavigationBar from './components/Navigation';
+import { NavigationBar } from './components/Navigation';
 
 import HeroSection from './components/Hero/Hero';
 import SkillsSection from './components/Skills/SkillsSection';

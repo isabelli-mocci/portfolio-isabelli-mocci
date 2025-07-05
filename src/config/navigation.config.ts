@@ -2,13 +2,44 @@ import type { NavigationConfig } from '../types/navigation.types';
 
 export const NAVIGATION_CONFIG: NavigationConfig = {
   links: [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about-me' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Blogs', href: '#blogs' },
+    { 
+      id: 'home',
+      name: 'Home', 
+      href: '#home',
+      ariaLabel: 'Navigate to home section'
+    },
+    { 
+      id: 'projects',
+      name: 'Projects', 
+      href: '#projects',
+      ariaLabel: 'Navigate to projects section'
+    },
+    { 
+      id: 'about',
+      name: 'About', 
+      href: '#about-me',
+      ariaLabel: 'Navigate to about section'
+    },
+    { 
+      id: 'skills',
+      name: 'Skills', 
+      href: '#skills',
+      ariaLabel: 'Navigate to skills section'
+    },
+    { 
+      id: 'blogs',
+      name: 'Blogs', 
+      href: '#blogs',
+      ariaLabel: 'Navigate to blogs section'
+    },
   ] as const,
-  maxWidth: 'max-w-4xl',
-  minHeight: 'min-h-[72px]',
-  zIndex: 40,
+  layout: {
+    maxWidth: 'max-w-4xl',
+    minHeight: 'min-h-[72px]',
+    zIndex: 40,
+  },
+  behavior: {
+    smooth: true,
+    offset: 72,
+  },
 } as const;

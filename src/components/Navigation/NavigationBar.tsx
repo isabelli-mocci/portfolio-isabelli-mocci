@@ -1,36 +1,60 @@
 import { memo } from 'react';
-import type { NavigationBarProps } from './NavigationBar.types';
+import type { NavigationBarProps } from '../../types/navigation.types';
 import { NAVIGATION_CONFIG } from '../../config/navigation.config';
 import { NAVIGATION_STYLES } from '../../styles/navigation.styles';
+import { createNavigationContainerClassName } from '../../utils/navigation.utils';
 import { combineClassNames } from '../../utils/className.utils';
+import { useNavigationService } from '../../hooks/useNavigationService';
+import { NavigationList } from './NavigationList';
 import StatusIndicator from '../StatusIndicator';
-import NavItems from './NavItems';
 import ContactButton from '../Contact/ContactButton';
 
-const createNavClassName = (maxWidth: string, minHeight: string): string => 
-  combineClassNames(NAVIGATION_STYLES.nav, maxWidth, minHeight);
-
-const NavigationBarComponent = ({ 
+const NavigationBarComponent = ({
   links = NAVIGATION_CONFIG.links,
   className,
-  testId = 'navigation-bar'
+  testId = 'navigation-bar',
+  activeItemId,
+  onItemClick,
+  showStatusIndicator = true,
+  showContactButton = true,
 }: NavigationBarProps) => {
-  const navClassName = createNavClassName(
-    NAVIGATION_CONFIG.maxWidth, 
-    NAVIGATION_CONFIG.minHeight
+  const { state, handleNavigationClick } = useNavigationService({
+    links,
+    smoothScroll: NAVIGATION_CONFIG.behavior.smooth,
+    scrollOffset: NAVIGATION_CONFIG.behavior.offset,
+    onItemClick,
+    autoDetectActive: !activeItemId,
+  });
+
+  const currentActiveId = activeItemId ?? state.activeItemId;
+
+  const navClassName = createNavigationContainerClassName(
+    NAVIGATION_CONFIG.layout.maxWidth,
+    NAVIGATION_CONFIG.layout.minHeight,
+    NAVIGATION_STYLES.container.nav
   );
 
   return (
-    <header 
-      className={combineClassNames(NAVIGATION_STYLES.header, className)}
+    <header
+      className={combineClassNames(NAVIGATION_STYLES.container.header, className)}
       data-testid={testId}
+      role="banner"
     >
-      <nav className={navClassName}>
-        <StatusIndicator />
-        <NavItems items={links} />
-        <div className={NAVIGATION_STYLES.actionsContainer}>
-          <ContactButton />
-        </div>
+      <nav className={navClassName} role="navigation">
+        {showStatusIndicator && <StatusIndicator />}
+        
+        <NavigationList
+          items={links}
+          activeItemId={currentActiveId}
+          onItemClick={handleNavigationClick}
+          variant="horizontal"
+        />
+        
+        {showContactButton && (
+          <div className={NAVIGATION_STYLES.container.actionsContainer}>
+            <ContactButton />
+          </div>
+        )}
       </nav>
     </header>
   );
@@ -38,5 +62,3 @@ const NavigationBarComponent = ({
 
 export const NavigationBar = memo(NavigationBarComponent);
 NavigationBar.displayName = 'NavigationBar';
-
-export default NavigationBar;
