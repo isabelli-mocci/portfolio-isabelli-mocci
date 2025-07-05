@@ -1,0 +1,31 @@
+export const ABOUT_SECTION_CONSTANTS = {
+  ANIMATION: {
+    DEFAULT_DELAY_MULTIPLIER: 0.1,
+    DEFAULT_BOUNCE_STIFFNESS: 300,
+    DEFAULT_BOUNCE_DAMPING: 20,
+    DEFAULT_DRAG_ELASTIC: 0.2
+  },
+  
+  LAYOUT: {
+    MIN_HEIGHT_MOBILE: '300px',
+    MIN_HEIGHT_DESKTOP: '500px',
+    MIN_CONTAINER_WIDTH: '320px',
+    MAX_CONTAINER_WIDTH: '600px',
+    CONTAINER_WIDTH_VW: '40vw',
+    CONTAINER_HEIGHT_VH: '80vh',
+    
+    RAY_ICON_SIZE: '.15em',
+    RAY_ICON_LEFT: '55%',
+    RAY_ICON_TOP: '58%',
+    
+    HEADING_FONT_SIZE: 'clamp(5rem, 18vw, 16rem)',
+    HEADING_LETTER_SPACING: '-0.04em',
+    HEADING_TEXT_SHADOW: '0 4px 24px rgba(0,0,0,0.25)'
+  },
+  
+  Z_INDEX: {
+    BASE: 10,
+    CONTENT: 20,
+    PILLS_BASE: 20
+  }
+} as const;
