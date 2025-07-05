@@ -1,38 +1,18 @@
+import { scrollService } from '../services/ScrollService';
 import { SCROLL_BADGE_DEFAULTS } from '../constants/heroScrollBadge.constants';
 
 export const scrollToElement = (
   selector: string = SCROLL_BADGE_DEFAULTS.TARGET_SELECTOR,
   behavior: ScrollBehavior = 'smooth'
 ): boolean => {
-  try {
-    const targetElement = document.querySelector(selector);
-    
-    if (!targetElement) {
-      console.warn(`Element with selector "${selector}" not found for scrolling`);
-      return false;
-    }
-    
-    targetElement.scrollIntoView({ behavior });
-    return true;
-  } catch (error) {
-    console.error('Error during scroll operation:', error);
-    return false;
-  }
+  return scrollService.scrollToTarget(
+    { selector },
+    { behavior }
+  );
 };
 
 export const validateSelector = (selector: string): boolean => {
-  if (typeof selector !== 'string' || selector.trim().length === 0) {
-    console.warn('Invalid selector provided for scroll operation');
-    return false;
-  }
-  
-  try {
-    document.querySelector(selector);
-    return true;
-  } catch {
-    console.warn(`Invalid CSS selector: "${selector}"`);
-    return false;
-  }
+  return scrollService.isValidSelector(selector);
 };
 
 export const createScrollHandler = (

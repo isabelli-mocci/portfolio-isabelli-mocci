@@ -26,7 +26,6 @@ const HeroHeading: React.FC<HeroHeadingProps> = ({
   const finalProfession = formatProfession(profession || defaultProfession);
   const finalDescription = description || defaultDescription;
 
-  // Validate props in development
   if (process.env.NODE_ENV === 'development') {
     const validation = validateHeroHeadingProps({
       personName: finalPersonName,

@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroButton from '../../components/Hero/HeroButton';
+import { HeroButton } from './HeroButton';
 import { RayIcon, DownloadIcon } from '../../components/Hero/HeroIcons';
 import { HERO_CONFIG } from '../../config/hero.config';
 
