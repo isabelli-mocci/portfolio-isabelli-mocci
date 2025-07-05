@@ -1,5 +1,3 @@
-// path: src/components/Logo.tsx
-
 import React, { useCallback, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Logo from '../assets/logo/logo-code-animated-dark.gif';
