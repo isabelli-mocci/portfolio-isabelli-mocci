@@ -1,5 +1,3 @@
-// path: src/components/HeroRay.tsx
-
 const HeroRay = ({ className }: { className?: string }) => (
   <svg
     className={className}

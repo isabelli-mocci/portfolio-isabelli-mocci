@@ -15,7 +15,7 @@ const HeroHeading: React.FC<HeroHeadingProps> = ({
   description,
   testId = 'hero-heading',
 }) => {
-  // Use configuration defaults if props are not provided
+
   const {
     defaultPersonName,
     defaultProfession,
