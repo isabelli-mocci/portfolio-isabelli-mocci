@@ -1,124 +1,100 @@
-// path: src/components/HeroScrollBadge.tsx
-
+import React, { useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import ScrollArrow from './ScrollArrow';
+import AnimatedCircle from './AnimatedCircle';
+import CircularText from './CircularText';
+import { createScrollHandler, validateSelector } from '../utils/heroScrollBadge.utils';
+import { SCROLL_BADGE_CONFIG } from '../config/heroScrollBadge.config';
+import { SCROLL_BADGE_DEFAULTS } from '../constants/heroScrollBadge.constants';
+import { SCROLL_BADGE_STYLES, createContainerStyle, createElementStyle, combineClassNames } from '../styles/heroScrollBadge.styles';
+import type { ScrollBadgeProps } from '../types/heroScrollBadge.types';
 
-interface ScrollBadgeProps {
-  onClick?: () => void;
-}
+const HeroScrollBadge: React.FC<ScrollBadgeProps> = ({
+  onClick,
+  targetSelector = SCROLL_BADGE_CONFIG.target.defaultSelector,
+  className = '',
+  disabled = false,
+  ariaLabel = SCROLL_BADGE_DEFAULTS.ARIA_LABEL,
+  testId = SCROLL_BADGE_DEFAULTS.TEST_ID,
+}) => {
+  const isValidTarget = useMemo(() => {
+    return validateSelector(targetSelector);
+  }, [targetSelector]);
 
-const ScrollBadge: React.FC<ScrollBadgeProps> = ({ onClick }) => {
-  const handleScroll = () => {
-    const nextSection = document.querySelector('#projects');
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (onClick) onClick();
-  };
+  const handleScrollAction = useCallback(() => {
+    const scrollHandler = createScrollHandler(targetSelector, onClick);
+    scrollHandler();
+  }, [targetSelector, onClick]);
+
+  const containerClassName = useMemo(() => {
+    return combineClassNames(SCROLL_BADGE_STYLES.container, className);
+  }, [className]);
+
+  const buttonClassName = useMemo(() => {
+    return combineClassNames(
+      SCROLL_BADGE_STYLES.button.base,
+      disabled ? SCROLL_BADGE_STYLES.button.disabled : undefined
+    );
+  }, [disabled]);
+
+  const containerStyle = useMemo(() => {
+    return createContainerStyle(
+      SCROLL_BADGE_CONFIG.dimensions.container.width,
+      SCROLL_BADGE_CONFIG.dimensions.container.height
+    );
+  }, []);
+
+  if (!isValidTarget) {
+    console.warn(`Invalid target selector: ${targetSelector}`);
+    return null;
+  }
 
   return (
     <motion.div
-      className='absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 3.5 }}
-      style={{ width: 120, height: 120 }}
+      className={containerClassName}
+      style={containerStyle}
+      data-testid={testId}
+      {...SCROLL_BADGE_CONFIG.animation.fadeTransition}
     >
       <button
-        type='button'
-        aria-label='Scroll to explore'
-        tabIndex={0}
-        onClick={handleScroll}
-        className='relative flex items-center justify-center w-full h-full bg-transparent border-none outline-none cursor-pointer'
-        style={{ zIndex: 10 }}
-        role='button'
+        type="button"
+        aria-label={ariaLabel}
+        tabIndex={disabled ? -1 : 0}
+        onClick={disabled ? undefined : handleScrollAction}
+        className={buttonClassName}
+        style={createElementStyle(SCROLL_BADGE_DEFAULTS.Z_INDEX.BUTTON)}
+        role="button"
+        disabled={disabled}
       >
-        <svg
-          width='120'
-          height='120'
-          className='absolute'
-          style={{ zIndex: 1 }}
-        >
-          <circle
-            cx='60'
-            cy='60'
-            r='58'
-            fill='none'
-            stroke='#fff'
-            strokeWidth='1.5'
-            strokeDasharray='12 8'
-          />
-        </svg>
+        <AnimatedCircle
+          radius={SCROLL_BADGE_CONFIG.dimensions.outerCircle.radius}
+          strokeColor={SCROLL_BADGE_CONFIG.styling.colors.stroke}
+          strokeWidth={SCROLL_BADGE_CONFIG.dimensions.outerCircle.strokeWidth}
+          dashArray={SCROLL_BADGE_CONFIG.styling.spacing.dashArray}
+          className={SCROLL_BADGE_STYLES.elements.circle}
+        />
 
-        <svg
-          width='96'
-          height='96'
-          viewBox='0 0 96 96'
-          className='absolute drop-shadow-lg'
-          style={{ zIndex: 3 }}
-        >
-          <g>
-            <animateTransform
-              attributeName='transform'
-              attributeType='XML'
-              type='rotate'
-              from='0 48 48'
-              to='360 48 48'
-              dur='7s'
-              repeatCount='indefinite'
-            />
-            <defs>
-              <path
-                id='circlePath'
-                d='M48,8 a40,40 0 1,1 0,80 a40,40 0 1,1 0,-80'
-              />
-            </defs>
-            <text
-              fill='#fff'
-              fontSize='11'
-              fontFamily='sans-serif'
-              fontWeight='400'
-              letterSpacing='3'
-            >
-              <textPath
-                xlinkHref='#circlePath'
-                startOffset='0%'
-                textLength='251'
-                lengthAdjust='spacingAndGlyphs'
-              >
-              SCROLL TO EXPLORE • SCROLL TO EXPLORE •&nbsp;
-              </textPath>
-            </text>
-          </g>
-        </svg>
-        <div className='flex items-center justify-center w-20 h-20 rounded-full z-10 shadow-xl'>
-          <svg
-            width='32'
-            height='40'
-            viewBox='0 0 32 40'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <line
-              x1='16'
-              y1='4'
-              x2='16'
-              y2='30'
-              stroke='white'
-              strokeWidth='1'
-              strokeLinecap='round'
-            />
-            <polyline
-              points='8,24 16,32 24,24'
-              fill='none'
-              stroke='white'
-              strokeWidth='1'
-              strokeLinejoin='round'
-            />
-          </svg>
+        <CircularText
+          text={SCROLL_BADGE_CONFIG.text.content}
+          radius={SCROLL_BADGE_CONFIG.dimensions.innerCircle.radius}
+          fontSize={SCROLL_BADGE_CONFIG.text.fontSize}
+          letterSpacing={SCROLL_BADGE_CONFIG.text.letterSpacing}
+          pathLength={SCROLL_BADGE_CONFIG.text.pathLength}
+          rotationDuration={SCROLL_BADGE_CONFIG.animation.rotationDuration}
+          className={SCROLL_BADGE_STYLES.elements.text}
+        />
+
+        <div className={SCROLL_BADGE_STYLES.elements.arrowContainer}>
+          <ScrollArrow
+            width={SCROLL_BADGE_CONFIG.dimensions.arrow.width}
+            height={SCROLL_BADGE_CONFIG.dimensions.arrow.height}
+            strokeColor={SCROLL_BADGE_CONFIG.styling.colors.stroke}
+            strokeWidth={1}
+          />
         </div>
       </button>
     </motion.div>
   );
 };
 
-export default ScrollBadge;
+export default HeroScrollBadge;
