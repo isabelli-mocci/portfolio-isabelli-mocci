@@ -2,7 +2,7 @@ import React from 'react';
 import HeadingText from './HeadingText';
 import HeroAnimatedWord from './HeroAnimatedWord';
 import type { HeroDescription } from '../../types/heroHeading.types';
-import { HERO_HEADING_CONFIG } from '../../config/heroHeading.config';
+import { HERO_HEADING_CONFIG } from '../../config/hero.config';
 
 interface DescriptionLinesProps {
   description: HeroDescription;

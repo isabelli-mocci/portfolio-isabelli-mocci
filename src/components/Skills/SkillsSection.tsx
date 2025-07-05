@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import type { SkillsSectionProps } from '../../types/skills.types';
-import { SKILLS_SECTION_CONFIG, SKILLS_SECTION_STYLES } from '../../config/skills.config';
+import { SKILLS_SECTION_CONFIG } from '../../config/skills.config';
 import { createSkillsData } from '../../data/skills.data';
 import SkillsSectionHeader from './SkillsSectionHeader';
 import SkillsGrid from './SkillsGrid';
@@ -12,13 +12,13 @@ const SkillsSection: React.FC<SkillsSectionProps> = memo(({
 }) => (
   <section
     id="skills"
-    className={SKILLS_SECTION_STYLES.CONTAINER}
+    className={SKILLS_SECTION_CONFIG.styles.container}
     style={{ 
-      minHeight: SKILLS_SECTION_CONFIG.LAYOUT.MIN_HEIGHT, 
+      minHeight: SKILLS_SECTION_CONFIG.layout.minHeight, 
       height: 'auto' 
     }}
   >
-    <div className={SKILLS_SECTION_STYLES.CONTENT}>
+    <div className={SKILLS_SECTION_CONFIG.styles.content}>
       <SkillsSectionHeader title={title} subtitle={subtitle} />
       <SkillsGrid skills={skills} />
     </div>

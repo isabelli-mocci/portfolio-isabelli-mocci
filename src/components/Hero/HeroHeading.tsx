@@ -5,7 +5,7 @@ import HeadingText from './HeadingText';
 import DecoratedName from './DecoratedName';
 import DescriptionLines from './DescriptionLines';
 import type { HeroHeadingProps } from '../../types/heroHeading.types';
-import { HERO_HEADING_CONFIG } from '../../config/heroHeading.config';
+import { HERO_HEADING_CONFIG } from '../../config/hero.config';
 import { validateHeroHeadingProps, formatPersonName, formatProfession } from '../../utils/heroHeading.utils';
 
 const HeroHeading: React.FC<HeroHeadingProps> = ({

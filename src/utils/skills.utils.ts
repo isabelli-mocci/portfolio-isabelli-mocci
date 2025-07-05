@@ -10,20 +10,20 @@ export const createSkillsAnimationVariants = (): {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: SKILLS_SECTION_CONFIG.ANIMATION.STAGGER_DELAY,
+        staggerChildren: SKILLS_SECTION_CONFIG.animation.staggerDelay,
       },
     },
   },
   itemVariants: {
     hidden: { 
       opacity: 0, 
-      y: SKILLS_SECTION_CONFIG.ANIMATION.INITIAL_Y_OFFSET 
+      y: SKILLS_SECTION_CONFIG.animation.initialYOffset 
     },
     show: { 
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: SKILLS_SECTION_CONFIG.ANIMATION.ITEM_DURATION 
+        duration: SKILLS_SECTION_CONFIG.animation.itemDuration 
       } 
     },
   },

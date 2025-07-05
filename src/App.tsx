@@ -1,4 +1,3 @@
-
 import { NavigationBar } from './components/Navigation';
 
 import HeroSection from './components/Hero/Hero';

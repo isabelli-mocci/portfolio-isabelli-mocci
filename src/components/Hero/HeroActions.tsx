@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroButton } from './HeroButton';
 import { RayIcon, DownloadIcon } from '../../components/Hero/HeroIcons';
-import { HERO_CONFIG } from '../../config/hero.config';
+import { HERO_SECTION_CONFIG } from '../../config/hero.config';
 
 interface HeroActionsProps {
   onSeeWorkClick?: () => void;
@@ -19,14 +19,14 @@ const HeroActions: React.FC<HeroActionsProps> = ({
       <HeroButton
         variant="primary"
         icon={<RayIcon className="ray-icon" />}
-        text={HERO_CONFIG.buttons.seeWork.text}
+        text={HERO_SECTION_CONFIG.actions.seeWork.text}
         onClick={onSeeWorkClick}
       />
       
       <HeroButton
         variant="secondary"
         icon={<DownloadIcon className="download-icon" />}
-        text={HERO_CONFIG.buttons.downloadCV.text}
+        text={HERO_SECTION_CONFIG.actions.downloadCV.text}
         onClick={onDownloadCVClick}
       />
     </div>

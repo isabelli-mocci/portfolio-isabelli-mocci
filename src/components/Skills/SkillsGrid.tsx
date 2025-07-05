@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import type { SkillData } from '../../types/skills.types';
-import { SKILLS_SECTION_STYLES } from '../../config/skills.config';
+import { SKILLS_SECTION_CONFIG } from '../../config/skills.config';
 import { createSkillsAnimationVariants } from '../../utils/skills.utils';
 import SkillsGridItem from './SkillsGridItem';
 
@@ -14,7 +14,7 @@ const SkillsGrid: React.FC<SkillsGridProps> = memo(({ skills }) => {
 
   return (
     <motion.div
-      className={SKILLS_SECTION_STYLES.GRID}
+      className={SKILLS_SECTION_CONFIG.styles.grid}
       variants={containerVariants}
       initial="hidden"
       animate="show"

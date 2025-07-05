@@ -1,7 +1,7 @@
 import React from 'react';
 import type { DecoratedNameProps } from '../../types/heroHeading.types';
 import { validateDecoratedNameProps, cn } from '../../utils/heroHeading.utils';
-import { HERO_HEADING_CONFIG } from '../../config/heroHeading.config';
+import { HERO_HEADING_CONFIG } from '../../config/hero.config';
 
 export const DecoratedName: React.FC<DecoratedNameProps> = ({
   name,

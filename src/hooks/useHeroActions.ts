@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { scrollService } from '../services/ScrollService';
-import { HERO_SECTION_CONFIG } from '../config/hero.refactored.config';
+import { HERO_SECTION_CONFIG } from '../config/hero.config';
 import type { ButtonVariant } from '../types/hero.refactored.types';
 
 export const useHeroActions = () => {

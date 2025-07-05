@@ -4,14 +4,14 @@ import ScrollArrow from './ScrollArrow';
 import AnimatedCircle from './AnimatedCircle';
 import CircularText from './CircularText';
 import { createScrollHandler, validateSelector } from '../../utils/heroScrollBadge.utils';
-import { SCROLL_BADGE_CONFIG } from '../../config/heroScrollBadge.config';
+import { HERO_SCROLL_BADGE_CONFIG } from '../../config/hero.config';
 import { SCROLL_BADGE_DEFAULTS } from '../../constants/heroScrollBadge.constants';
 import { SCROLL_BADGE_STYLES, createContainerStyle, createElementStyle, combineClassNames } from '../../styles/heroScrollBadge.styles';
 import type { ScrollBadgeProps } from '../../types/heroScrollBadge.types';
 
 const HeroScrollBadge: React.FC<ScrollBadgeProps> = ({
   onClick,
-  targetSelector = SCROLL_BADGE_CONFIG.target.defaultSelector,
+  targetSelector = HERO_SCROLL_BADGE_CONFIG.target.defaultSelector,
   className = '',
   disabled = false,
   ariaLabel = SCROLL_BADGE_DEFAULTS.ARIA_LABEL,
@@ -39,8 +39,8 @@ const HeroScrollBadge: React.FC<ScrollBadgeProps> = ({
 
   const containerStyle = useMemo(() => {
     return createContainerStyle(
-      SCROLL_BADGE_CONFIG.dimensions.container.width,
-      SCROLL_BADGE_CONFIG.dimensions.container.height
+      HERO_SCROLL_BADGE_CONFIG.dimensions.container.width,
+      HERO_SCROLL_BADGE_CONFIG.dimensions.container.height
     );
   }, []);
 
@@ -54,7 +54,7 @@ const HeroScrollBadge: React.FC<ScrollBadgeProps> = ({
       className={containerClassName}
       style={containerStyle}
       data-testid={testId}
-      {...SCROLL_BADGE_CONFIG.animation.fadeTransition}
+      {...HERO_SCROLL_BADGE_CONFIG.animation.fadeTransition}
     >
       <button
         type="button"
@@ -67,28 +67,28 @@ const HeroScrollBadge: React.FC<ScrollBadgeProps> = ({
         disabled={disabled}
       >
         <AnimatedCircle
-          radius={SCROLL_BADGE_CONFIG.dimensions.outerCircle.radius}
-          strokeColor={SCROLL_BADGE_CONFIG.styling.colors.stroke}
-          strokeWidth={SCROLL_BADGE_CONFIG.dimensions.outerCircle.strokeWidth}
-          dashArray={SCROLL_BADGE_CONFIG.styling.spacing.dashArray}
+          radius={HERO_SCROLL_BADGE_CONFIG.dimensions.outerCircle.radius}
+          strokeColor={HERO_SCROLL_BADGE_CONFIG.styling.colors.stroke}
+          strokeWidth={HERO_SCROLL_BADGE_CONFIG.dimensions.outerCircle.strokeWidth}
+          dashArray={HERO_SCROLL_BADGE_CONFIG.styling.spacing.dashArray}
           className={SCROLL_BADGE_STYLES.elements.circle}
         />
 
         <CircularText
-          text={SCROLL_BADGE_CONFIG.text.content}
-          radius={SCROLL_BADGE_CONFIG.dimensions.innerCircle.radius}
-          fontSize={SCROLL_BADGE_CONFIG.text.fontSize}
-          letterSpacing={SCROLL_BADGE_CONFIG.text.letterSpacing}
-          pathLength={SCROLL_BADGE_CONFIG.text.pathLength}
-          rotationDuration={SCROLL_BADGE_CONFIG.animation.rotationDuration}
+          text={HERO_SCROLL_BADGE_CONFIG.text.content}
+          radius={HERO_SCROLL_BADGE_CONFIG.dimensions.innerCircle.radius}
+          fontSize={HERO_SCROLL_BADGE_CONFIG.text.fontSize}
+          letterSpacing={HERO_SCROLL_BADGE_CONFIG.text.letterSpacing}
+          pathLength={HERO_SCROLL_BADGE_CONFIG.text.pathLength}
+          rotationDuration={HERO_SCROLL_BADGE_CONFIG.animation.rotationDuration}
           className={SCROLL_BADGE_STYLES.elements.text}
         />
 
         <div className={SCROLL_BADGE_STYLES.elements.arrowContainer}>
           <ScrollArrow
-            width={SCROLL_BADGE_CONFIG.dimensions.arrow.width}
-            height={SCROLL_BADGE_CONFIG.dimensions.arrow.height}
-            strokeColor={SCROLL_BADGE_CONFIG.styling.colors.stroke}
+            width={HERO_SCROLL_BADGE_CONFIG.dimensions.arrow.width}
+            height={HERO_SCROLL_BADGE_CONFIG.dimensions.arrow.height}
+            strokeColor={HERO_SCROLL_BADGE_CONFIG.styling.colors.stroke}
             strokeWidth={1}
           />
         </div>
