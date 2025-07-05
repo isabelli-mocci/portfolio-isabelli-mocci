@@ -1,28 +1,26 @@
-// path: src/components/HeroStar.tsx
+import React from 'react';
+import type { StarProps } from '../types/heroBackground.types';
+import { CSS_CLASSES, SVG_DEFAULTS } from '../constants/heroBackground.constants';
+import { STAR_CONFIG } from '../config/heroBackground.config';
 
-const HeroStar = ({ className }: { className?: string }) => (
+const HeroStar: React.FC<StarProps> = ({
+  className = '',
+  stroke = STAR_CONFIG.defaultStroke,
+  fill = STAR_CONFIG.defaultFill,
+  strokeWidth = STAR_CONFIG.defaultStrokeWidth,
+  size = STAR_CONFIG.defaultSize,
+}) => (
   <svg
-    className={`animate-spin-slow ${className ?? ''}`}
-    width='36'
-    height='36'
-    viewBox='0 0 72 72'
-    fill='none'
-    stroke='#adff2f'
-    strokeWidth='3'
-    strokeLinejoin='round'
-    style={{ display: 'inline', verticalAlign: 'middle' }}
-    xmlns='http://www.w3.org/2000/svg'
+    className={`${CSS_CLASSES.STAR_BASE} ${className}`}
+    width={size}
+    height={size}
+    viewBox={SVG_DEFAULTS.VIEWBOX}
+    fill={fill}
+    stroke={stroke}
+    strokeWidth={strokeWidth}
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d='
-      M36 8
-      Q40 28 64 36
-      Q40 44 36 64
-      Q32 44 8 36
-      Q32 28 36 8
-      Z
-    '
-    />
+    <polygon points={SVG_DEFAULTS.STAR_POINTS} />
   </svg>
 );
 

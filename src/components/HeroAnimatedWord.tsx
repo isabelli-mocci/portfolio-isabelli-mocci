@@ -1,42 +1,60 @@
-// path: src/components/HeroAnimatedWord.tsx
+import React, { useMemo } from 'react';
+import { useWordCycle } from '../hooks/useWordCycle';
+import { createTransitionStyle } from '../styles/animatedWord.styles';
+import { validateWords, validateDuration, calculateMinWidth } from '../utils/animatedWord.utils';
+import { ANIMATED_WORD_CONFIG } from '../config/animatedWord.config';
+import type { AnimatedWordProps } from '../types/animatedWord.types';
 
-import React, { useEffect, useRef, useState } from 'react';
+const HeroAnimatedWord: React.FC<AnimatedWordProps> = ({
+  words = ANIMATED_WORD_CONFIG.words,
+  intervalDuration = ANIMATED_WORD_CONFIG.intervalDuration,
+  transitionDuration = ANIMATED_WORD_CONFIG.transitionDuration,
+  className = ANIMATED_WORD_CONFIG.className,
+  style,
+  onWordChange,
+  testId = 'hero-animated-word',
+}) => {
+  const validatedWords = useMemo(() => {
+    return validateWords(words) ? words : ANIMATED_WORD_CONFIG.words;
+  }, [words]);
 
-const words = [
-  'beautiful',
-  'engaging',
-  'intuitive',
-  'polished',
-  'dynamic',
-  'stunning',
-];
+  const validatedIntervalDuration = useMemo(() => {
+    return validateDuration(intervalDuration, ANIMATED_WORD_CONFIG.intervalDuration);
+  }, [intervalDuration]);
 
-const HeroAnimatedWord: React.FC = () => {
-  const [wordIndex, setWordIndex] = useState(0);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const validatedTransitionDuration = useMemo(() => {
+    return validateDuration(transitionDuration, ANIMATED_WORD_CONFIG.transitionDuration);
+  }, [transitionDuration]);
 
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      setWordIndex(prev => (prev + 1) % words.length);
-    }, 1800);
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [wordIndex]);
+  const dynamicMinWidth = useMemo(() => {
+    return calculateMinWidth(validatedWords);
+  }, [validatedWords]);
+
+  const { currentWord, isTransitioning } = useWordCycle({
+    words: validatedWords,
+    intervalDuration: validatedIntervalDuration,
+    onWordChange,
+  });
+
+  const combinedStyle = useMemo(() => ({
+    ...createTransitionStyle(isTransitioning, validatedTransitionDuration),
+    minWidth: dynamicMinWidth,
+    ...style,
+  }), [isTransitioning, validatedTransitionDuration, dynamicMinWidth, style]);
+
+  if (!currentWord) {
+    return null;
+  }
 
   return (
     <span
-      className='text-text-green transition-all duration-500 inline-block'
-      key={words[wordIndex]}
-      style={{
-        minWidth: 120,
-        willChange: 'opacity,transform',
-        opacity: 1,
-        transform: 'scale(1)',
-        transition: 'opacity 0.5s, transform 0.5s',
-      }}
+      className={className}
+      style={combinedStyle}
+      data-testid={testId}
+      data-word={currentWord}
+      data-transitioning={isTransitioning}
     >
-      {words[wordIndex]}
+      {currentWord}
     </span>
   );
 };

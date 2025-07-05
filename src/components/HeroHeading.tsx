@@ -1,38 +1,60 @@
-// path: src/components/HeroHeading.tsx
-
 import React from 'react';
 import HeroStar from './HeroStar';
 import HeroRay from './HeroRay';
-import HeroAnimatedWord from './HeroAnimatedWord';
+import HeadingText from './HeadingText';
+import DecoratedName from './DecoratedName';
+import DescriptionLines from './DescriptionLines';
+import type { HeroHeadingProps } from '../types/heroHeading.types';
+import { HERO_HEADING_CONFIG } from '../config/heroHeading.config';
+import { validateHeroHeadingProps, formatPersonName, formatProfession } from '../utils/heroHeading.utils';
 
-const HeroHeading: React.FC = () => (
-  <div className='z-10 flex flex-col items-center justify-center text-4xl md:text-6xl leading-tight text-center w-full'>
-    <h1 className='text-text-white'>
-      <span className='inline-block mr-2 align-middle'>
-        <HeroStar />
-      </span>
-      Isabelli Mocci
-      <span
-        className='relative inline-block'
-        style={{ width: 24 }}
-      >
-        <span
-          className='absolute left-0 top-[-0.6em] animate-bounce'
-          style={{ pointerEvents: 'none' }}
-        >
-          <HeroRay />
-        </span>
-      </span>{' '}
-      is a front-end developer
-    </h1>
-    <h1 className='text-text-gray'>
-      <span className='text-text-white'>who</span> blends technical expertise
-      and
-    </h1>
-    <h1 className='text-text-gray'>
-      creativity to deliver <HeroAnimatedWord /> websites.
-    </h1>
-  </div>
-);
+const HeroHeading: React.FC<HeroHeadingProps> = ({
+  className = '',
+  personName,
+  profession,
+  description,
+  testId = 'hero-heading',
+}) => {
+  // Use configuration defaults if props are not provided
+  const {
+    defaultPersonName,
+    defaultProfession,
+    defaultDescription,
+  } = HERO_HEADING_CONFIG.text;
+
+  const finalPersonName = formatPersonName(personName || defaultPersonName);
+  const finalProfession = formatProfession(profession || defaultProfession);
+  const finalDescription = description || defaultDescription;
+
+  // Validate props in development
+  if (process.env.NODE_ENV === 'development') {
+    const validation = validateHeroHeadingProps({
+      personName: finalPersonName,
+      profession: finalProfession,
+      description: finalDescription,
+    });
+    
+    if (!validation.isValid) {
+      console.warn('HeroHeading validation errors:', validation.errors);
+    }
+  }
+
+  const containerClasses = `${HERO_HEADING_CONFIG.styling.container} ${className}`.trim();
+
+  return (
+    <div className={containerClasses} data-testid={testId}>
+      <HeadingText variant="primary">
+        <DecoratedName
+          name={finalPersonName}
+          starIcon={<HeroStar />}
+          rayIcon={<HeroRay />}
+        />
+        {' '}is a {finalProfession}
+      </HeadingText>
+      
+      <DescriptionLines description={finalDescription} />
+    </div>
+  );
+};
 
 export default HeroHeading;
