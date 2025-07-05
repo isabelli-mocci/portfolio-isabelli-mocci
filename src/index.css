@@ -90,12 +90,13 @@ body {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
   }
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee var(--marquee-duration, 20s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
 }
 
 .skew-marquee {
@@ -113,16 +114,19 @@ body {
 /* Custom scrollbar for modal image area */
 .custom-scrollbar-modal {
   scrollbar-width: thin;
-  scrollbar-color: #b0e57c #23221f;
+  scrollbar-color: rgba(120,120,120,0.25) transparent;
 }
 .custom-scrollbar-modal::-webkit-scrollbar {
-  width: 8px;
-  background: #23221f;
+  width: 10px;
+  background: transparent;
 }
 .custom-scrollbar-modal::-webkit-scrollbar-thumb {
-  background: #b0e57c;
+  background: rgba(120,120,120,0.25);
   border-radius: 8px;
-  border: 2px solid #23221f;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.custom-scrollbar-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(80,80,80,0.35);
 }
 .custom-scrollbar-modal::-webkit-scrollbar-track {
   background: #23221f;

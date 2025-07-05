@@ -1,5 +1,3 @@
-// path: src/types/useAnimatedStroke.ts
-
 import { useState, useEffect } from 'react';
 
 export function useAnimatedStroke(speed = 0.02, initial = 0) {

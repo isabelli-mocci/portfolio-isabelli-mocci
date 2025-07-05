@@ -1,5 +1,3 @@
-// path: src/types/projectItem.ts
-
 export interface ProjectItem {
   id: string;
   title: string;

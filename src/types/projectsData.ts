@@ -1,5 +1,3 @@
-// path: src/types/projectsData.ts
-
 import type { ProjectItem } from './projectItem';
 
 export const projectsData: ProjectItem[] = [

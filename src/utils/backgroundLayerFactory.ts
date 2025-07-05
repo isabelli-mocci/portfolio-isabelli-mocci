@@ -1,8 +1,8 @@
 import React from 'react';
 import type { BackgroundLayer, ParallaxOffset } from '../types/heroBackground.types';
-import HeroStar from '../components/HeroStar';
-import ParallaxImage from '../components/ParallaxImage';
-import BackgroundGradient from '../components/BackgroundGradient';
+import HeroStar from '../components/Hero/HeroStar';
+import ParallaxImage from '../components/Background/ParallaxImage';
+import BackgroundGradient from '../components/Background/BackgroundGradient';
 
 interface LayerFactoryProps {
   layer: BackgroundLayer;

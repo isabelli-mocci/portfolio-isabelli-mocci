@@ -1,5 +1,3 @@
-// path: src/types/pillsData.ts
-
 export const pillsData = [
   {
     text: 'creative 🎨',
