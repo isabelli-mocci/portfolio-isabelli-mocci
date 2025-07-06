@@ -29,7 +29,6 @@ export interface HeroSectionProps {
   className?: string;
 }
 
-// Tipos consolidados do hero.refactored.types.ts
 export interface HeroComponentProps {
   className?: string;
   testId?: string;

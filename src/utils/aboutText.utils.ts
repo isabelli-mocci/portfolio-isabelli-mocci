@@ -15,12 +15,3 @@ export const validateIconConfig = (config: unknown): boolean => {
     iconConfig?.animationClass
   );
 };
-
-export const createAnimationClass = (baseName: string): string => {
-  return `${baseName}-animate`;
-};
-
-export const formatMarginStyle = (left: string, right: string): CSSProperties => ({
-  marginLeft: left,
-  marginRight: right
-});
