@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InfiniteMarquee from '../InfiniteMarquee';
+import InfiniteMarquee from '../Marquee/InfiniteMarquee';
 import ProjectsGrid from './ProjectsGrid';
 import ProjectModal from './ProjectModal';
 import ProjectsTitle from './ProjectsTitle';
