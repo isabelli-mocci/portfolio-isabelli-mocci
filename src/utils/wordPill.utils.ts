@@ -18,19 +18,17 @@ export const validatePosition = (position: WordPillPosition): boolean => {
 };
 
 export const sanitizeText = (text: string): string => {
-  return text.trim().slice(0, 50); // Limit to 50 characters
+  return text.trim().slice(0, 50);
 };
 
 export const createAnimationConfig = (props: WordPillProps): WordPillAnimationConfig => {
   const { initialRotation, delay, push } = props;
   
-  // Garantir que push sempre tenha um valor válido
   const safePush: WordPillPosition = {
     x: push?.x ?? WORD_PILL_CONSTANTS.DEFAULTS.PUSH.x,
     y: push?.y ?? WORD_PILL_CONSTANTS.DEFAULTS.PUSH.y
   };
   
-  // Validar se os valores são números válidos
   if (!validatePosition(safePush)) {
     console.warn('WordPill: Invalid push position, using defaults');
     return {
@@ -63,7 +61,6 @@ export const createStyleConfig = (): WordPillStyleConfig => ({
 export const generateFloatingAnimation = (push: WordPillPosition) => {
   const randomDuration = WORD_PILL_CONSTANTS.ANIMATION.FLOATING_DURATION_BASE + Math.random();
   
-  // Garantir valores seguros para push
   const safeX = push?.x ?? WORD_PILL_CONSTANTS.DEFAULTS.PUSH.x;
   const safeY = push?.y ?? WORD_PILL_CONSTANTS.DEFAULTS.PUSH.y;
   

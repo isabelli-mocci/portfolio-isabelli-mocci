@@ -9,7 +9,7 @@ export const DecoratedName: React.FC<DecoratedNameProps> = ({
   rayIcon,
   className = '',
 }) => {
-  // Validate props in development
+
   if (process.env.NODE_ENV === 'development') {
     const validation = validateDecoratedNameProps({ name, starIcon, rayIcon, className });
     if (!validation.isValid) {

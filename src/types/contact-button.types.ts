@@ -12,7 +12,7 @@ export interface AnimationState {
   readonly isAnimating: boolean;
 }
 
-export interface ButtonVariant {
+export interface ContactButtonVariant {
   readonly container: string;
   readonly background: string;
   readonly content: string;

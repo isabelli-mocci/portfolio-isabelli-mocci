@@ -1,18 +1,18 @@
-import { scrollService } from '../services/ScrollService';
+import { scrollToTarget, isValidSelector } from './navigation.utils';
 import { SCROLL_BADGE_DEFAULTS } from '../constants/heroScrollBadge.constants';
 
 export const scrollToElement = (
   selector: string = SCROLL_BADGE_DEFAULTS.TARGET_SELECTOR,
   behavior: ScrollBehavior = 'smooth'
 ): boolean => {
-  return scrollService.scrollToTarget(
+  return scrollToTarget(
     { selector },
     { behavior }
   );
 };
 
 export const validateSelector = (selector: string): boolean => {
-  return scrollService.isValidSelector(selector);
+  return isValidSelector(selector);
 };
 
 export const createScrollHandler = (

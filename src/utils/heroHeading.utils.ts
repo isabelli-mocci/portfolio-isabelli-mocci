@@ -46,12 +46,10 @@ export const formatProfession = (profession: string): string => {
   return sanitizeText(profession);
 };
 
-// Utility function for combining class names (similar to clsx/cn)
 export const cn = (...classes: (string | undefined | null | false)[]): string => {
   return classes.filter(Boolean).join(' ');
 };
 
-// Validation for DecoratedName props
 export interface ValidationResult {
   isValid: boolean;
   errors: string[];
@@ -83,7 +81,6 @@ export const validateDecoratedNameProps = (props: {
   };
 };
 
-// Validation for HeroHeading props
 export const validateHeroHeadingProps = (props: {
   personName?: string;
   profession?: string;
@@ -125,7 +122,6 @@ export const validateHeroHeadingProps = (props: {
   };
 };
 
-// Text formatting utilities
 export const formatHeadingText = (text: string, variant: 'primary' | 'secondary' = 'primary'): string => {
   const sanitized = sanitizeText(text);
   

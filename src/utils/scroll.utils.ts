@@ -1,10 +1,10 @@
-import { scrollService } from '../services/ScrollService';
+import { scrollToTarget } from './navigation.utils';
 
 export const scrollToElement = (
   selector: string, 
   behavior: ScrollBehavior = 'smooth'
 ): void => {
-  scrollService.scrollToTarget(
+  scrollToTarget(
     { selector },
     { behavior }
   );

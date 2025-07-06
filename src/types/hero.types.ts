@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export interface HeroButtonProps {
   variant: 'primary' | 'secondary';
   icon: React.ReactNode;
@@ -25,4 +27,39 @@ export interface HeroConfig {
 
 export interface HeroSectionProps {
   className?: string;
+}
+
+// Tipos consolidados do hero.refactored.types.ts
+export interface HeroComponentProps {
+  className?: string;
+  testId?: string;
+}
+
+export interface HeroActionProps extends HeroComponentProps {
+  onSeeWork?: () => void;
+  onDownloadCV?: () => void;
+}
+
+export interface HeroSectionConfig {
+  actions: {
+    seeWork: {
+      text: string;
+      targetSelector: string;
+    };
+    downloadCV: {
+      text: string;
+      downloadUrl?: string;
+    };
+  };
+  scroll: {
+    behavior: ScrollBehavior;
+    fallbackSelector?: string;
+  };
+}
+
+export interface ButtonVariant {
+  type: 'primary' | 'secondary';
+  icon: ReactNode;
+  text: string;
+  action: () => void;
 }

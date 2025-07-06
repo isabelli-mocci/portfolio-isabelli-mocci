@@ -1,6 +1,6 @@
-import type { ButtonVariant } from '../types/contact-button.types';
+import type { ContactButtonVariant } from '../types/contact-button.types';
 
-export const createButtonVariant = (): ButtonVariant => ({
+export const createButtonVariant = (): ContactButtonVariant => ({
   container: [
     'relative',
     'inline-flex',

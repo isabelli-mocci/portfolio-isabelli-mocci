@@ -15,7 +15,6 @@ export const createWordPillConfig = () => ({
     }),
     
     floating: (config: WordPillAnimationConfig) => {
-      // Garantir que push sempre tenha valores válidos com fallback seguro
       const pushX = config.push?.x ?? WORD_PILL_CONSTANTS.DEFAULTS.PUSH.x;
       const pushY = config.push?.y ?? WORD_PILL_CONSTANTS.DEFAULTS.PUSH.y;
       

@@ -36,6 +36,17 @@ export const shouldNavigateToLink = (link: NavigationLink): boolean => {
   return Boolean(link.href && !link.isExternal);
 };
 
+interface ScrollOptions {
+  behavior?: ScrollBehavior;
+  onSuccess?: () => void;
+  onError?: (error: Error) => void;
+}
+
+interface ScrollTarget {
+  selector: string;
+  fallbackSelector?: string;
+}
+
 export const handleSmoothScroll = (
   href: string,
   offset: number = 0,
@@ -53,6 +64,54 @@ export const handleSmoothScroll = (
       });
     }
   }
+};
+
+export const scrollToTarget = (target: ScrollTarget, options: ScrollOptions = {}): boolean => {
+  const { behavior = 'smooth', onSuccess, onError } = options;
+  
+  try {
+    const element = findElement(target);
+    
+    if (!element) {
+      const error = new Error(`Element not found: ${target.selector}`);
+      onError?.(error);
+      return false;
+    }
+
+    element.scrollIntoView({ behavior });
+    onSuccess?.();
+    return true;
+  } catch (error) {
+    onError?.(error as Error);
+    return false;
+  }
+};
+
+export const createScrollHandler = (target: ScrollTarget, options: ScrollOptions = {}) => {
+  return () => scrollToTarget(target, options);
+};
+
+export const isValidSelector = (selector: string): boolean => {
+  if (typeof selector !== 'string' || !selector.trim()) {
+    return false;
+  }
+  
+  try {
+    document.querySelector(selector);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const findElement = (target: ScrollTarget): Element | null => {
+  let element = document.querySelector(target.selector);
+  
+  if (!element && target.fallbackSelector) {
+    element = document.querySelector(target.fallbackSelector);
+  }
+  
+  return element;
 };
 
 export const getActiveNavigationItem = (

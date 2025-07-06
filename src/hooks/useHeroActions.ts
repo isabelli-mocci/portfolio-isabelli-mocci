@@ -1,14 +1,14 @@
 import { useCallback } from 'react';
-import { scrollService } from '../services/ScrollService';
+import { scrollToTarget } from '../utils/navigation.utils';
 import { HERO_SECTION_CONFIG } from '../config/hero.config';
-import type { ButtonVariant } from '../types/hero.refactored.types';
+import type { ButtonVariant } from '../types/hero.types';
 
 export const useHeroActions = () => {
   const handleSeeWork = useCallback(() => {
     const { targetSelector } = HERO_SECTION_CONFIG.actions.seeWork;
     const { fallbackSelector, behavior } = HERO_SECTION_CONFIG.scroll;
     
-    scrollService.scrollToTarget(
+    scrollToTarget(
       { selector: targetSelector, fallbackSelector },
       { behavior }
     );

@@ -1,4 +1,4 @@
-import type { HeroSectionConfig } from '../types/hero.refactored.types';
+import type { HeroSectionConfig } from '../types/hero.types';
 import type { HeroHeadingConfig } from '../types/heroHeading.types';
 import type { ScrollBadgeConfig } from '../types/heroScrollBadge.types';
 

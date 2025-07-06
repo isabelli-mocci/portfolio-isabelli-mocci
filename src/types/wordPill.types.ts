@@ -8,7 +8,7 @@ export interface WordPillPosition {
 export interface WordPillAnimationConfig {
   initialRotation: number;
   delay: number;
-  push: WordPillPosition; // Sempre obrigatório na configuração validada
+  push: WordPillPosition;
 }
 
 export interface WordPillDragConfig {

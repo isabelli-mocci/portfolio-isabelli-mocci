@@ -3,7 +3,7 @@ import InfiniteMarquee from '../InfiniteMarquee';
 import ProjectsGrid from './ProjectsGrid';
 import ProjectModal from './ProjectModal';
 import ProjectsTitle from './ProjectsTitle';
-import { projectsData } from '../../types/projectsData';
+import { projectsData } from '../../data/projects.data';
 
 const MARQUEE_LABELS = [
   'MAINTAINABLE',

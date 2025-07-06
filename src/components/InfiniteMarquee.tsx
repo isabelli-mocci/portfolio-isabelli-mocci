@@ -11,10 +11,9 @@ const InfiniteMarquee: React.FC<InfiniteMarqueeProps> = ({
   speed = 60,
   direction = 'left',
 }) => {
-  const duplicatedItems = [...items, ...items, ...items]; // Triplicamos para garantir continuidade
-  
-  // Calcula a duração baseada na velocidade
-  const duration = Math.max(10, 100 - speed); // Entre 10s e 100s
+  const duplicatedItems = [...items, ...items, ...items];
+
+  const duration = Math.max(10, 100 - speed);
 
   return (
     <div

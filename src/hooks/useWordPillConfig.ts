@@ -9,13 +9,13 @@ export const useWordPillConfig = (props: WordPillProps) => {
       return validateAndTransformProps(props);
     } catch (error) {
       console.error('WordPill configuration error:', error);
-      // Return safe defaults com garantia de push válido
+
       return {
         text: 'Error',
         animation: {
           initialRotation: 0,
           delay: 0,
-          push: { x: 0, y: 0 } // Garantir que push sempre exista
+          push: { x: 0, y: 0 }
         },
         drag: {
           enabled: false,
@@ -38,7 +38,6 @@ export const useWordPillConfig = (props: WordPillProps) => {
   const motionProps = useMemo(() => {
     const { animation, drag, style } = validatedProps;
     
-    // Dupla verificação para garantir que animation.push existe
     if (!animation.push) {
       console.warn('WordPill: Missing push configuration, using defaults');
       animation.push = { x: 0, y: 0 };

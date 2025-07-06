@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { pillsData, pillsPositions } from '../types/pillsData';
+import { pillsData, pillsPositions } from '../data/pills.data';
 import type { PillData, PillPosition, PillWithPosition } from '../types/aboutSection.types';
 import { validatePillData, validatePillPosition, createPillWithPosition } from '../utils/aboutSection.utils';
 
