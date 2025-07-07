@@ -29,6 +29,7 @@ export interface NavigationBarProps {
   readonly onItemClick?: (link: NavigationLink) => void;
   readonly showStatusIndicator?: boolean;
   readonly showContactButton?: boolean;
+  readonly onContactClick?: () => void;
 }
 
 export interface NavigationConfig {

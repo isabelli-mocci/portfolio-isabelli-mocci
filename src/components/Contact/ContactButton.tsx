@@ -31,7 +31,6 @@ export const ContactButton: FC<ContactButtonProps> = ({
         className={buttonClassName}
         onClick={handleClick}
         disabled={disabled}
-        aria-label={label}
       >
         <ButtonBackground />
         <ButtonContent label={label} />
@@ -42,4 +41,3 @@ export const ContactButton: FC<ContactButtonProps> = ({
 };
 
 export default ContactButton;
-export type { ContactButtonProps };

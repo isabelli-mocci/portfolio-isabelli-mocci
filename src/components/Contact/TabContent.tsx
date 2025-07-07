@@ -20,5 +20,9 @@ export const TabContent: React.FC<TabContentProps> = ({ activeTab, contactMethod
     }
   };
 
-  return <div>{renderTabContent()}</div>;
+  return (
+    <div className="flex-1 flex flex-col">
+      {renderTabContent()}
+    </div>
+  );
 };

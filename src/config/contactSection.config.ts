@@ -1,5 +1,9 @@
 import type { ContactSectionConfig } from '../types/contactSection.types';
 import { CONTACT_SECTION_CONSTANTS } from '../constants/contactSection.constants';
+import { FaSquareGithub } from "react-icons/fa6";
+import { FaDev } from "react-icons/fa6";
+import { FaSquareEnvelope } from "react-icons/fa6";
+import { IoLogoLinkedin } from "react-icons/io5";
 
 export const CONTACT_SECTION_CONFIG: ContactSectionConfig = {
   animations: {
@@ -52,28 +56,28 @@ export const CONTACT_SECTION_CONFIG: ContactSectionConfig = {
       id: 'linkedin',
       href: CONTACT_SECTION_CONSTANTS.CONTACT_INFO.LINKEDIN_URL,
       label: 'LinkedIn',
-      iconPath: '/path/to/linkedin-icon.svg',
+      icon: IoLogoLinkedin,
       isExternal: true,
     },
     {
       id: 'dev',
       href: '#',
       label: 'DEV Community',
-      iconPath: '/path/to/dev-icon.svg',
+      icon: FaDev,
       isExternal: true,
     },
     {
       id: 'github',
-      href: '#',
+      href: CONTACT_SECTION_CONSTANTS.CONTACT_INFO.GITHUB_URL,
       label: 'GitHub',
-      iconPath: '/path/to/github-icon.svg',
+      icon: FaSquareGithub,
       isExternal: true,
     },
     {
       id: 'email',
       href: `mailto:${CONTACT_SECTION_CONSTANTS.CONTACT_INFO.EMAIL}`,
       label: 'E-mail',
-      iconPath: '/path/to/email-icon.svg',
+      icon: FaSquareEnvelope,
       isExternal: false,
     },
   ],
@@ -86,11 +90,7 @@ export const CONTACT_SECTION_CONFIG: ContactSectionConfig = {
       description: CONTACT_SECTION_CONSTANTS.CONTACT_INFO.EMAIL,
       href: `mailto:${CONTACT_SECTION_CONSTANTS.CONTACT_INFO.EMAIL}`,
       isExternal: false,
-      icon: {
-        viewBox: '0 0 24 24',
-        path: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-        strokeWidth: '2',
-      },
+      icon: FaSquareEnvelope,
     },
     {
       id: 'linkedin',
@@ -99,11 +99,7 @@ export const CONTACT_SECTION_CONFIG: ContactSectionConfig = {
       description: CONTACT_SECTION_CONSTANTS.TEXTS.LINKEDIN_DESCRIPTION,
       href: CONTACT_SECTION_CONSTANTS.CONTACT_INFO.LINKEDIN_URL,
       isExternal: true,
-      icon: {
-        viewBox: '0 0 24 24',
-        path: 'M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.5a2.5 2.5 0 00-5 0V12',
-        strokeWidth: '2',
-      },
+      icon: IoLogoLinkedin,
     },
   ],
   

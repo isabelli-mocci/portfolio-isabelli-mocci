@@ -1,6 +1,6 @@
-import React from 'react';
+import { memo } from 'react';
 import type { ContactTabType } from '../../types/contactSection.types';
-import { contactSectionStyles } from '../../styles/contactSection.styles';
+import contactSectionStyles from '../../styles/contactSection.styles';
 import { CONTACT_SECTION_CONSTANTS } from '../../constants/contactSection.constants';
 
 interface TabNavigationProps {
@@ -9,7 +9,7 @@ interface TabNavigationProps {
   readonly onTabChange: (tab: ContactTabType) => void;
 }
 
-export const TabNavigation: React.FC<TabNavigationProps> = ({
+export const TabNavigation = memo<TabNavigationProps>(({
   tabs,
   activeTab,
   onTabChange,
@@ -32,4 +32,6 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({
       </button>
     ))}
   </div>
-);
+));
+
+TabNavigation.displayName = 'TabNavigation';

@@ -13,6 +13,7 @@
     "watch:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "framer-motion": "^12.18.1",
     "lucide-react": "^0.518.0",
     "react": "^19.1.0",

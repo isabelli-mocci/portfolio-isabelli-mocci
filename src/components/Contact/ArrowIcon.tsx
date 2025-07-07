@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import type { FC } from 'react';
 import { ARROW_ICON_CONFIG } from '../../constants/contact-button.constants';
 
-export const ArrowIcon: FC = () => (
+export const ArrowIcon: FC = memo(() => (
   <svg
     stroke="currentColor"
     fill="currentColor"
@@ -14,4 +15,6 @@ export const ArrowIcon: FC = () => (
   >
     <path d={ARROW_ICON_CONFIG.PATH} />
   </svg>
-);
+));
+
+ArrowIcon.displayName = 'ArrowIcon';

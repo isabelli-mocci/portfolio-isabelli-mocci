@@ -1,25 +1,39 @@
 import { useState, useCallback } from 'react';
 import type { ContactTabType } from '../types/contactSection.types';
 
-export const useContactSection = () => {
-  const [activeTab, setActiveTab] = useState<ContactTabType>('quick');
+interface ContactSectionState {
+  readonly activeTab: ContactTabType;
+}
+
+interface ContactSectionActions {
+  readonly setActiveTab: (tab: ContactTabType) => void;
+  readonly closeModal: (onClose: () => void) => void;
+  readonly preventEventBubbling: (event: React.MouseEvent) => void;
+}
+
+const INITIAL_STATE: ContactSectionState = {
+  activeTab: 'quick',
+};
+
+export const useContactSection = (): ContactSectionState & ContactSectionActions => {
+  const [activeTab, setActiveTab] = useState<ContactTabType>(INITIAL_STATE.activeTab);
 
   const handleTabChange = useCallback((tab: ContactTabType) => {
     setActiveTab(tab);
   }, []);
 
-  const handleOverlayClick = useCallback((onClose: () => void) => {
+  const handleModalClose = useCallback((onClose: () => void) => {
     onClose();
   }, []);
 
-  const handleModalClick = useCallback((event: React.MouseEvent) => {
+  const handleEventPrevention = useCallback((event: React.MouseEvent) => {
     event.stopPropagation();
   }, []);
 
   return {
     activeTab,
-    handleTabChange,
-    handleOverlayClick,
-    handleModalClick,
+    setActiveTab: handleTabChange,
+    closeModal: handleModalClose,
+    preventEventBubbling: handleEventPrevention,
   };
 };

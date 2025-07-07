@@ -1,5 +1,5 @@
-import React from 'react';
-import { contactSectionStyles } from '../../styles/contactSection.styles';
+import { memo } from 'react';
+import contactSectionStyles from '../../styles/contactSection.styles';
 import { CONTACT_SECTION_CONSTANTS } from '../../constants/contactSection.constants';
 
 interface CloseButtonProps {
@@ -7,11 +7,12 @@ interface CloseButtonProps {
   readonly ariaLabel: string;
 }
 
-export const CloseButton: React.FC<CloseButtonProps> = ({ onClose, ariaLabel }) => (
+export const CloseButton = memo<CloseButtonProps>(({ onClose, ariaLabel }) => (
   <button
     onClick={onClose}
     className={contactSectionStyles.closeButton}
     aria-label={ariaLabel}
+    type="button"
   >
     <svg
       className={CONTACT_SECTION_CONSTANTS.SPACING.ICON_SIZE}
@@ -28,4 +29,6 @@ export const CloseButton: React.FC<CloseButtonProps> = ({ onClose, ariaLabel }) 
       />
     </svg>
   </button>
-);
+));
+
+CloseButton.displayName = 'CloseButton';

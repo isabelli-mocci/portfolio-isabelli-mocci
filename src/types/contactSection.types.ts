@@ -1,4 +1,5 @@
 import type { Variants } from 'framer-motion';
+import type { ComponentType } from 'react';
 
 export type ContactTabType = 'quick' | 'form';
 
@@ -11,7 +12,7 @@ export interface SocialLinkData {
   readonly id: string;
   readonly href: string;
   readonly label: string;
-  readonly iconPath: string;
+  readonly icon: ComponentType<{ className?: string }>;
   readonly isExternal?: boolean;
 }
 
@@ -22,7 +23,7 @@ export interface ContactMethodData {
   readonly description: string;
   readonly href: string;
   readonly isExternal?: boolean;
-  readonly icon: ContactIconConfig;
+  readonly icon: ComponentType<{ className?: string }>;
 }
 
 export interface ContactIconConfig {

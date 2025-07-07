@@ -17,6 +17,7 @@ const NavigationBarComponent = ({
   onItemClick,
   showStatusIndicator = true,
   showContactButton = true,
+  onContactClick,
 }: NavigationBarProps) => {
   const { state, handleNavigationClick } = useNavigationService({
     links,
@@ -52,7 +53,7 @@ const NavigationBarComponent = ({
         
         {showContactButton && (
           <div className={NAVIGATION_STYLES.container.actionsContainer}>
-            <ContactButton />
+            <ContactButton onClick={onContactClick} />
           </div>
         )}
       </nav>

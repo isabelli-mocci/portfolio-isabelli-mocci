@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { FC } from 'react';
 import { ArrowIcon } from './ArrowIcon';
 import { createButtonVariant, createIconTransformClasses } from '../../styles/contact-button.styles';
@@ -6,7 +7,7 @@ interface ButtonContentProps {
   readonly label: string;
 }
 
-export const ButtonContent: FC<ButtonContentProps> = ({ label }) => {
+export const ButtonContent: FC<ButtonContentProps> = memo(({ label }) => {
   const styles = createButtonVariant();
   const iconClasses = createIconTransformClasses();
 
@@ -18,4 +19,6 @@ export const ButtonContent: FC<ButtonContentProps> = ({ label }) => {
       </span>
     </span>
   );
-};
+});
+
+ButtonContent.displayName = 'ButtonContent';

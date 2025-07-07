@@ -1,10 +1,15 @@
+import React from 'react';
 import { AboutTextSection } from './AboutTextSection';
-import { ContactSection } from '../Contact/ContactSection';
+import { ContactSectionWrapper } from '../Contact/ContactSectionWrapper';
 import { AboutHeading } from './AboutHeading';
 import { InteractivePillsContainer } from './InteractivePillsContainer';
 import { aboutSectionStyles } from '../../styles/aboutSection.styles';
 
-export const AboutSection = () => (
+interface AboutSectionProps {
+  readonly onContactClick?: () => void;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) => (
   <section
     id="about-me"
     aria-labelledby="about-heading"
@@ -12,7 +17,7 @@ export const AboutSection = () => (
   >
     <MainContentContainer />
     <AboutTextSection />
-    <ContactSection />
+    <ContactSectionWrapper onClick={onContactClick} />
   </section>
 );
 

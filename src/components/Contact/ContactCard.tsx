@@ -1,7 +1,6 @@
 import React from 'react';
 import type { ContactMethodData } from '../../types/contactSection.types';
-import { ContactIcon } from './ContactIcon';
-import { contactSectionStyles } from '../../styles/contactSection.styles';
+import contactSectionStyles from '../../styles/contactSection.styles';
 import { CONTACT_SECTION_CONSTANTS } from '../../constants/contactSection.constants';
 
 interface ContactCardProps {
@@ -23,10 +22,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contactMethod }) => {
   return (
     <div className={contactSectionStyles.contactCard}>
       <div className={contactSectionStyles.contactHeader}>
-        <ContactIcon 
-          icon={contactMethod.icon}
-          className={contactSectionStyles.contactIcon}
-        />
+        <contactMethod.icon className={contactSectionStyles.contactIcon} />
         <h4 className={contactSectionStyles.contactTitle}>
           {contactMethod.title}
         </h4>
