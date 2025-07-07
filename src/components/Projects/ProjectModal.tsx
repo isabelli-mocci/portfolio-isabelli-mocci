@@ -5,7 +5,7 @@ import previewWireframe from '../../assets/images/preview-wireframe.jpg';
 import NavigationArrow from './NavigationArrow';
 import ToolBadge from './ToolBadge';
 import ProjectActionButtons from './ProjectActionButtons';
-import { useHideHeaderNav } from './useHideHeaderNav';
+import { useHideHeaderNav } from '../../hooks/useHideHeaderNav';
 
 interface ProjectModalProps {
   project: ProjectItem | null;

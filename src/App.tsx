@@ -5,6 +5,7 @@ import ProjectsSection from './components/Projects/ProjectsSection';
 import AboutSection from './components/About/AboutSection';
 import SkillsSection from './components/Skills/SkillsSection';
 import { ContactSection } from './components/Contact/ContactSection';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
         isOpen={isContactModalOpen} 
         onClose={handleCloseContactModal} 
       />
+      <Footer />
     </div>
   );
 }
