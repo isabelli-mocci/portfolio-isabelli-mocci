@@ -2,12 +2,18 @@ import React, { memo } from 'react';
 import type { SkillData } from '../../types/skills.types';
 
 const SKILLS_ACCESSIBILITY = {
-  SKILL_BUTTON_LABEL: (skillName: string) => `View details for ${skillName}`,
+  SKILL_BUTTON_LABEL: (skillName: string) => `Visit ${skillName} official website`,
 } as const;
 
 interface SkillCardProps {
   readonly skill: SkillData;
 }
+
+const handleSkillClick = (url?: string) => {
+  if (url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+};
 
 const IconWrapper = memo(({ icon }: { readonly icon: React.ReactNode }) => <>{icon}</>);
 IconWrapper.displayName = 'IconWrapper';
@@ -35,10 +41,11 @@ const SkillCard: React.FC<SkillCardProps> = memo(({ skill }) => (
       </div>
       <button
         type="button"
-        className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-2xl shadow-inner backdrop-blur-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 group z-20 focus:outline-none focus:ring-2 focus:ring-text-green focus:ring-opacity-50 transition-all duration-200"
+        className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-2xl shadow-inner backdrop-blur-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 group z-20 focus:outline-none focus:ring-2 focus:ring-text-white focus:ring-opacity-50 transition-all duration-200 hover:cursor-pointer"
         tabIndex={0}
         aria-label={SKILLS_ACCESSIBILITY.SKILL_BUTTON_LABEL(skill.name)}
         role="gridcell"
+        onClick={() => handleSkillClick(skill.url)}
       >
         <span
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-70 transition duration-300 z-20"
