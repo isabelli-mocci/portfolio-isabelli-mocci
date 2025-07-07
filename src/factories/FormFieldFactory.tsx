@@ -1,8 +1,8 @@
 import React from 'react';
 import type { FormFieldProps } from '../types/contactForm.types';
-import { FormInput } from '../components/Contact/FormInput';
-import { FormTextarea } from '../components/Contact/FormTextarea';
-import { FormSelect } from '../components/Contact/FormSelect';
+import { FormInput } from '../components/Form/FormInput';
+import { FormTextarea } from '../components/Form/FormTextarea';
+import { FormSelect } from '../components/Form/FormSelect';
 
 type FormFieldType = 'input' | 'email' | 'textarea' | 'select';
 

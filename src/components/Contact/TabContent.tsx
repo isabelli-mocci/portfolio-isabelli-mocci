@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ContactTabType, ContactMethodData } from '../../types/contactSection.types';
-import { QuickContactTab } from './QuickContactTab';
-import { ContactFormTab } from './ContactFormTab';
+import { QuickContactTab } from './ContactQuickTab';
+import { ContactFormTab } from '../Form/FormTab';
 
 interface TabContentProps {
   readonly activeTab: ContactTabType;

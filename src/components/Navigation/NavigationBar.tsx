@@ -7,7 +7,7 @@ import { combineClassNames } from '../../utils/className.utils';
 import { useNavigationService } from '../../hooks/useNavigationService';
 import { NavigationList } from './NavigationList';
 import StatusIndicator from '../StatusIndicator';
-import ContactButton from '../Contact/ContactButton';
+import ContactButton from '../ContactButton/ContactButton';
 
 const NavigationBarComponent = ({
   links = NAVIGATION_CONFIG.links,

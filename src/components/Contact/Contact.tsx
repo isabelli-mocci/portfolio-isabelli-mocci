@@ -7,7 +7,7 @@ import { CONTACT_SECTION_CONSTANTS } from '../../constants/contactSection.consta
 import { AnimationService } from '../../services/AnimationService';
 import contactSectionStyles from '../../styles/contactSection.styles';
 import { CloseButton } from './CloseButton';
-import { ModalHeader } from './ModalHeader';
+import { ModalHeader } from './ContactCardHeader';
 import { SocialLinks } from './SocialLinks';
 import { TabNavigation } from './TabNavigation';
 import { TabContent } from './TabContent';

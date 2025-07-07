@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './Logo';
 import HeroScrollBadge from './HeroScrollBadge';
-import HeroBackground from '../Background/HeroBackground';
+import HeroBackground from '../Background/BackgroundHero';
 import HeroHeading from './HeroHeading';
 import HeroActions from './HeroActions';
 import { useHeroActions } from '../../hooks/useHeroActions';

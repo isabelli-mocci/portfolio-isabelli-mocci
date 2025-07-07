@@ -1,22 +1,22 @@
 // Contact Button Components
-export { ContactButton as default } from './ContactButton';
-export { ArrowIcon } from './ArrowIcon';
-export { ButtonContent } from './ButtonContent';
-export { ButtonBackground, ButtonOverlay } from './ButtonElements';
-export { ContactSectionWrapper } from './ContactSectionWrapper';
+export { ContactButton as default } from '../ContactButton/ContactButton';
+export { ArrowIcon } from '../ContactButton/ArrowIcon';
+export { ButtonContent } from '../ContactButton/ButtonContent';
+export { ButtonBackground, ButtonOverlay } from '../ContactButton/ButtonElements';
+export { SectionWrapper } from '../ContactButton/SectionWrapper';
 
 // Contact Section Components
-export { ContactSection } from './ContactSection';
-export { ModalHeader } from './ModalHeader';
+export { ContactSection } from './Contact';
+export { ModalHeader } from './ContactCardHeader';
 export { CloseButton } from './CloseButton';
 export { SocialLinks } from './SocialLinks';
 export { TabNavigation } from './TabNavigation';
 export { TabContent } from './TabContent';
-export { ContactFormTab } from './ContactFormTab';
-export { CustomSelect } from './CustomSelect';
+export { ContactFormTab } from '../Form/FormTab';
+export { CustomSelect } from '../Form/CustomSelect';
 export { ContactCard } from './ContactCard';
 export { AvailabilityStatus } from './AvailabilityStatus';
-export { QuickContactTab } from './QuickContactTab';
+export { QuickContactTab } from './ContactQuickTab';
 export { ContactIcon } from './ContactIcon';
 
 // Type exports

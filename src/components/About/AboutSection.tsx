@@ -1,6 +1,6 @@
 import React from 'react';
 import { AboutTextSection } from './AboutTextSection';
-import { ContactSectionWrapper } from '../Contact/ContactSectionWrapper';
+import { SectionWrapper } from '../ContactButton/SectionWrapper';
 import { AboutHeading } from './AboutHeading';
 import { InteractivePillsContainer } from './InteractivePillsContainer';
 import { aboutSectionStyles } from '../../styles/aboutSection.styles';
@@ -17,7 +17,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
   >
     <MainContentContainer />
     <AboutTextSection />
-    <ContactSectionWrapper onClick={onContactClick} />
+    <SectionWrapper onClick={onContactClick} />
   </section>
 );
 

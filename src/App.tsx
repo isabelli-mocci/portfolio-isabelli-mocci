@@ -4,7 +4,7 @@ import HeroSection from './components/Hero/Hero';
 import ProjectsSection from './components/Projects/ProjectsSection';
 import AboutSection from './components/About/AboutSection';
 import SkillsSection from './components/Skills/SkillsSection';
-import { ContactSection } from './components/Contact/ContactSection';
+import { ContactSection } from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
 function App() {
