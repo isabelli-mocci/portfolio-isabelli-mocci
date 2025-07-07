@@ -1,5 +1,6 @@
 import { memo, useState, useRef, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa6';
+import type { SelectOption } from '../../types/contactForm.types';
 import contactSectionStyles from '../../styles/contactSection.styles';
 
 interface CustomSelectProps {
@@ -8,7 +9,7 @@ interface CustomSelectProps {
   readonly value: string;
   readonly onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   readonly placeholder: string;
-  readonly options: ReadonlyArray<{ readonly value: string; readonly label: string }>;
+  readonly options: ReadonlyArray<SelectOption>;
   readonly required?: boolean;
   readonly hasError?: boolean;
 }

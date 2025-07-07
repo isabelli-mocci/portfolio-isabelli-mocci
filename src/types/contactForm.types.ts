@@ -22,6 +22,11 @@ export interface FormFieldProps {
   readonly required?: boolean;
 }
 
+export interface SelectOption {
+  readonly value: string;
+  readonly label: string;
+}
+
 export interface FormSubmissionResult {
   readonly success: boolean;
   readonly error?: string;

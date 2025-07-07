@@ -3,7 +3,7 @@ import contactSectionStyles from '../../styles/contactSection.styles';
 import { CONTACT_FORM_FIELDS } from '../../config/contactForm.config';
 import { useContactForm } from '../../hooks/useContactForm';
 import { FormFieldFactory } from '../../factories/FormFieldFactory';
-import { SubmitButton } from './FormSend';
+import { SubmitButton } from './SubmitButton';
 
 export const ContactFormTab: React.FC = () => {
   const { formData, errors, isSubmitting, updateField, submitForm } = useContactForm();

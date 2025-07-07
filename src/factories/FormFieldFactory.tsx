@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormFieldProps } from '../types/contactForm.types';
+import type { FormFieldProps, SelectOption } from '../types/contactForm.types';
 import { FormInput } from '../components/Form/FormInput';
 import { FormTextarea } from '../components/Form/FormTextarea';
 import { FormSelect } from '../components/Form/FormSelect';
@@ -9,7 +9,7 @@ type FormFieldType = 'input' | 'email' | 'textarea' | 'select';
 interface FormFieldConfig extends FormFieldProps {
   readonly type: FormFieldType;
   readonly label: string;
-  readonly options?: readonly { value: string; label: string }[];
+  readonly options?: readonly SelectOption[];
 }
 
 export class FormFieldFactory {

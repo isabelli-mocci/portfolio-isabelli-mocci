@@ -1,12 +1,7 @@
 import React from 'react';
-import type { FormFieldProps } from '../../types/contactForm.types';
+import type { FormFieldProps, SelectOption } from '../../types/contactForm.types';
 import { CustomSelect } from './CustomSelect';
 import contactSectionStyles from '../../styles/contactSection.styles';
-
-interface SelectOption {
-  readonly value: string;
-  readonly label: string;
-}
 
 interface FormSelectProps extends FormFieldProps {
   readonly label: string;

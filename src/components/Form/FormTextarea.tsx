@@ -4,7 +4,6 @@ import contactSectionStyles from '../../styles/contactSection.styles';
 
 interface FormTextareaProps extends FormFieldProps {
   readonly label: string;
-  readonly minHeight?: string;
 }
 
 export const FormTextarea: React.FC<FormTextareaProps> = ({
