@@ -6,6 +6,7 @@ import AboutSection from './components/About/AboutSection';
 import SkillsSection from './components/Skills/SkillsSection';
 import { ContactSection } from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import CustomCursor from './components/UI/CustomCursor';
 
 function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className='app-container relative'>
+      <CustomCursor />
       <NavigationBar onContactClick={handleOpenContactModal} />
       <main className='relative'>
         <HeroSection />
