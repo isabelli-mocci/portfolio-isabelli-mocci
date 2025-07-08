@@ -6,22 +6,18 @@ interface ToolBadgeProps {
 }
 
 const ToolBadge: React.FC<ToolBadgeProps> = ({ name, iconUrl }) => (
-  <div className='flex flex-col items-center justify-center text-center'>
+  <div className="flex flex-col items-center justify-center text-center">
     <button
-      type='button'
-      className='relative flex items-center justify-center w-14 h-14 rounded-2xl shadow-inner backdrop-blur-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 group z-20 focus:outline-none transition-all duration-200 mb-1'
+      type="button"
+      className="group relative mb-2"
       tabIndex={0}
       aria-label={`${name} info`}
+      role="gridcell"
     >
-      <span
-        className='pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-70 transition duration-300 z-20'
-        style={{
-          boxShadow:
-            'inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1)',
-        }}
-      />
-      <div className='w-6 h-6 md:w-7 md:h-7 flex items-center justify-center z-30'>
-        <span className='w-full h-full flex items-center justify-center transform group-hover:scale-110 transition-transform'>
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl group-hover:bg-white/10 group-hover:border-white/30 transition-all duration-500" />
+      
+      <div className="relative p-3 flex items-center justify-center w-12 h-12 md:w-14 md:h-14">
+        <span className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
           <img
             src={iconUrl}
             alt={name}
@@ -29,6 +25,8 @@ const ToolBadge: React.FC<ToolBadgeProps> = ({ name, iconUrl }) => (
           />
         </span>
       </div>
+      
+      <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500" />
     </button>
     <span className='text-neutral-400 text-xs'>{name}</span>
   </div>
