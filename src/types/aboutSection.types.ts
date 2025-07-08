@@ -1,5 +1,8 @@
+import type { LucideIcon } from 'lucide-react';
+
 export interface PillData {
   readonly text: string;
+  readonly icon?: LucideIcon;
   readonly initialRotation: number;
   readonly initialX?: string;
   readonly initialY?: string;

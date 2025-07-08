@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import type { LucideIcon } from 'lucide-react';
 
 export interface WordPillPosition {
   x: number;
@@ -31,6 +32,7 @@ export interface WordPillStyleConfig {
 
 export interface WordPillProps {
   text: string;
+  icon?: LucideIcon;
   initialRotation?: number;
   initialX?: string | number;
   initialY?: string | number;

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { pillsData, pillsPositions } from '../data/pills.data';
+import { pillsData, pillsPositions, pillsPositionsCompact } from '../data/pills.data';
 import type { PillData, PillPosition, PillWithPosition } from '../types/aboutSection.types';
 import { validatePillData, validatePillPosition, createPillWithPosition } from '../utils/aboutSection.utils';
 
@@ -9,14 +9,21 @@ interface PillsDataResult {
   readonly totalPositions: number;
 }
 
-export const usePillsData = (): PillsDataResult => {
+interface UsePillsDataOptions {
+  compact?: boolean;
+}
+
+export const usePillsData = (options: UsePillsDataOptions = {}): PillsDataResult => {
+  const { compact = false } = options;
+  
   const validatedPills = useMemo(() => 
     pillsData.filter(validatePillData) as readonly PillData[]
   , []);
 
-  const validatedPositions = useMemo(() => 
-    pillsPositions.filter(validatePillPosition) as readonly PillPosition[]
-  , []);
+  const validatedPositions = useMemo(() => {
+    const positions = compact ? pillsPositionsCompact : pillsPositions;
+    return positions.filter(validatePillPosition) as readonly PillPosition[];
+  }, [compact]);
 
   const pillsWithPositions = useMemo(() => {
     if (validatedPositions.length === 0) {

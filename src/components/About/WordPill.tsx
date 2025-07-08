@@ -11,7 +11,12 @@ export const WordPill = (props: WordPillProps) => {
       aria-label={validatedProps.text}
       {...motionProps}
     >
-      {validatedProps.text}
+      <div className="flex items-center gap-1.5">
+        {props.icon && (
+          <props.icon className="w-3 h-3 flex-shrink-0" />
+        )}
+        <span>{validatedProps.text}</span>
+      </div>
     </motion.div>
   );
 };

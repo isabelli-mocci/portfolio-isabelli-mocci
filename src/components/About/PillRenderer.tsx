@@ -24,6 +24,7 @@ export const PillRenderer = ({ pill, position, index }: PillRendererProps) => {
     >
       <WordPill
         text={pill.text}
+        icon={pill.icon}
         initialRotation={pill.initialRotation}
         initialX={position.left}
         initialY={position.top}
@@ -55,12 +56,14 @@ const PillMotionWrapper = ({
       top: position.top,
       zIndex,
       pointerEvents: 'auto',
+      cursor: 'grab',
     }}
     initial={{ rotate: pill.initialRotation }}
     drag
     dragMomentum={animations.drag.momentum}
     dragElastic={animations.drag.elastic}
     dragTransition={animations.drag.transition}
+    whileDrag={{ cursor: 'grabbing' }}
   >
     {children}
   </motion.div>

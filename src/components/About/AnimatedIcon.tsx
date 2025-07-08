@@ -1,8 +1,10 @@
-import { ABOUT_TEXT_CONSTANTS } from '../../constants/aboutText.constants';
-import type { AnimatedIconProps } from '../../types/aboutText.types';
+import React from 'react';
 
-interface AnimatedIconComponentProps extends Omit<AnimatedIconProps, 'Icon'> {
-  Icon: React.ComponentType<{ style?: React.CSSProperties }>;
+interface AnimatedIconProps {
+  Icon: React.ComponentType<{ style?: React.CSSProperties; className?: string }>;
+  ariaLabel: string;
+  animationClass: string;
+  style?: React.CSSProperties;
   className?: string;
 }
 
@@ -12,14 +14,14 @@ export const AnimatedIcon = ({
   animationClass, 
   style = {},
   className = "inline-block align-middle"
-}: AnimatedIconComponentProps) => (
+}: AnimatedIconProps) => (
   <span
     className={`${animationClass} ${className}`}
     aria-label={ariaLabel}
   >
     <Icon
+      className="text-primary-color"
       style={{
-        color: ABOUT_TEXT_CONSTANTS.COLORS.PRIMARY,
         verticalAlign: 'middle',
         ...style
       }}
