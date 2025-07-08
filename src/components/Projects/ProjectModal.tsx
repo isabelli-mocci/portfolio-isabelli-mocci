@@ -57,16 +57,28 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, onNextPro
           onClick={e => e.stopPropagation()}
         >
           <div className="flex flex-col justify-between items-start w-full max-w-[42%] h-full px-7 py-10 overflow-hidden gap-2">
-            <button
+            <motion.button
               onClick={onClose}
-              className="absolute top-3 right-3 text-bg-dark transition-colors duration-200 text-2xl font-bold rounded-full p-0.5 bg-white/30 hover:bg-white/60 backdrop-blur-lg border border-white/30 shadow-[0_2px_8px_0_rgba(0,0,0,0.10)] z-50 flex items-center justify-center w-8 h-8"
+              className="absolute top-4 right-4 text-white/80 hover:text-white transition-all duration-300 ease-out rounded-full p-2 bg-gradient-to-r from-red-500/20 to-red-600/20 hover:from-red-500/40 hover:to-red-600/40 backdrop-blur-xl border border-red-400/30 hover:border-red-400/60 shadow-[0_4px_16px_0_rgba(239,68,68,0.25)] hover:shadow-[0_8px_24px_0_rgba(239,68,68,0.40)] z-50 flex items-center justify-center group"
               aria-label="Close modal"
               type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" strokeWidth={2.8} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 14L14 6M6 6l8 8" />
-              </svg>
-            </button>
+              <motion.svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                strokeWidth={2.5} 
+                stroke="currentColor" 
+                className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </motion.svg>
+            </motion.button>
             <div className="flex flex-col gap-2">
               <h3 className="text-primary-color/60 text-3xl font-medium leading-snug tracking-tight drop-shadow-sm text-left mt-4">
                 {project.title}

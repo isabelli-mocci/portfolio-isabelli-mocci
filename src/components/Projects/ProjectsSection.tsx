@@ -4,6 +4,8 @@ import ProjectsGrid from './ProjectsGrid';
 import ProjectModal from './ProjectModal';
 import ProjectsTitle from './ProjectsTitle';
 import { projectsData } from '../../data/projects.data';
+import { useGlobalProjectsScroll } from '../../hooks/useGlobalProjectsScroll';
+import { scrollToNextSection, getNextSectionId, getPreviousSectionId } from '../../utils/scrollUtils';
 
 const MARQUEE_LABELS = [
   'MAINTAINABLE',
@@ -16,15 +18,39 @@ const MARQUEE_LABELS = [
   'INTERACTIVE',
 ];
 
-const ProjectsSection: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<
+const ProjectsSection: React.FC = () => {  const [selectedProject, setSelectedProject] = useState<
     import('../../types/projectItem').ProjectItem | null
   >(null);
 
+  const handleReachEnd = () => {
+    const nextSectionId = getNextSectionId('projects');
+    if (nextSectionId) {
+      setTimeout(() => {
+        scrollToNextSection(nextSectionId, 80);
+      }, 200);
+    }
+  };
+
+  const handleReachStart = () => {
+    const previousSectionId = getPreviousSectionId('projects');
+    if (previousSectionId) {
+      setTimeout(() => {
+        scrollToNextSection(previousSectionId, 80);
+      }, 200);
+    }
+  };
+
+  const { scrollRef, sectionRef } = useGlobalProjectsScroll({ 
+    wheelSensitivity: 6,
+    onReachEnd: handleReachEnd,
+    onReachStart: handleReachStart
+  });
+
   return (
     <section
+      ref={sectionRef}
       id='projects'
-      className='projects-section relative flex flex-col items-center justify-center min-h-screen text-white px-6 text-center overflow-hidden bg-gradient-to-b from-bg-dark to-bg-medium'
+      className='projects-section relative flex flex-col items-center justify-center min-h-screen text-white text-center bg-gradient-to-b from-bg-dark to-bg-medium'
     >
       <div className='w-full flex flex-col items-center relative z-10'>
         <div className='w-full mt-12'>
@@ -47,22 +73,22 @@ const ProjectsSection: React.FC = () => {
           />
         </div>
         <ProjectsTitle />
-        <div className='mb-16 sm:mb-24 md:mb-32'></div>
-        <div className='w-full flex items-center justify-center py-8 min-h-[500px] md:min-h-[700px] lg:min-h-[900px] overflow-x-auto scrollbar-none'>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              gap: '2rem',
-              minWidth: 'max-content',
-              paddingLeft: '2rem',
-              paddingRight: '2rem',
+        <div className='mb-8 sm:mb-12 md:mb-16'></div>
+        <div className='relative w-full'>
+          <div 
+            ref={scrollRef}
+            className='projects-scroll-container w-full overflow-x-auto hide-scrollbar py-8 sm:py-12 md:py-16'
+            style={{ 
+              scrollBehavior: 'smooth',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
-            <ProjectsGrid
-              projects={projectsData}
-              onOpenModal={project => setSelectedProject(project)}
-            />
+            <div className='flex flex-row gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-w-max pb-4 items-center'>
+              <ProjectsGrid
+                projects={projectsData}
+                onOpenModal={project => setSelectedProject(project)}
+              />
+            </div>
           </div>
         </div>
         <ProjectModal
