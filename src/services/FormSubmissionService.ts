@@ -16,7 +16,7 @@ export class FormSubmissionService {
         EMAILJS_CONFIG.PUBLIC_KEY === 'QrlMypY6HfLJpGGbp'
       ) {
         console.warn(
-          'EmailJS não configurado. Configure as constantes no arquivo emailjs.config.ts'
+          'EmailJS not configured. Configure the constants in the emailjs.config.ts file'
         );
         await this.simulateApiCall();
         console.log('Form submitted (simulated):', formData);
@@ -44,7 +44,7 @@ export class FormSubmissionService {
       console.error('Error submitting form:', error);
       return {
         success: false,
-        error: 'Erro ao enviar mensagem. Tente novamente.',
+        error: 'Error sending message. Please try again.',
       };
     }
   }

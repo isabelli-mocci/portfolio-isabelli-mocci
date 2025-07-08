@@ -6,10 +6,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-light': '#cdcdcd', // tom claro de cima do gradiente
-        'bg-light-2': '#7d7d7d', // tom claro de baixo do gradiente
+        'bg-light': '#cdcdcd', // light tone from the top of the gradient
+        'bg-light-2': '#7d7d7d', // light tone from the bottom of the gradient
         'bg-medium': '#272727',
-        'bg-dark': '#1f1d1d', // tom escuro
+        'bg-dark': '#1f1d1d', // dark tone
 
         // Text colors
         'text-white': '#FFFFFF',
@@ -27,7 +27,7 @@ export default {
 
         // Colors
         'primary-color': '#adff2f',
-        'secondary-color': '#7fa38a', // verde suave
+        'secondary-color': '#7fa38a', // soft green
         'skill-gradient-start': '#232323',
         'skill-gradient-end': '#353535',
       },

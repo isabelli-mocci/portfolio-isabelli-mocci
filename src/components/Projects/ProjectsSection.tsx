@@ -77,7 +77,7 @@ const ProjectsSection: React.FC = () => {
                   if (idx !== -1 && idx < projectsData.length - 1) {
                     setSelectedProject(projectsData[idx + 1]);
                   } else if (idx === projectsData.length - 1) {
-                    setSelectedProject(projectsData[0]); // loop para o primeiro
+                    setSelectedProject(projectsData[0]);
                   }
                 }
               : undefined
@@ -91,7 +91,7 @@ const ProjectsSection: React.FC = () => {
                   if (idx > 0) {
                     setSelectedProject(projectsData[idx - 1]);
                   } else if (idx === 0) {
-                    setSelectedProject(projectsData[projectsData.length - 1]); // loop para o último
+                    setSelectedProject(projectsData[projectsData.length - 1])
                   }
                 }
               : undefined

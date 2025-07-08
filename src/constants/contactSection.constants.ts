@@ -77,7 +77,7 @@ export const CONTACT_SECTION_CONSTANTS = {
     FORM_NAME_LABEL: 'Name',
     FORM_NAME_PLACEHOLDER: 'Your complete name',
     FORM_EMAIL_LABEL: 'E-mail',
-    FORM_EMAIL_PLACEHOLDER: 'seu.email@exemplo.com',
+    FORM_EMAIL_PLACEHOLDER: 'your.email@example.com',
     FORM_SUBJECT_LABEL: 'Subject',
     FORM_SUBJECT_PLACEHOLDER: 'Select a subject',
     FORM_MESSAGE_LABEL: 'Message',

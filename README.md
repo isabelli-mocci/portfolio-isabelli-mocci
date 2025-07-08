@@ -1,33 +1,33 @@
-# Isabelli Mocci – Desenvolvedora Front-End
+# Isabelli Mocci – Frontend Developer
 
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=flat-square)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat-square)
 ![Frontend](https://img.shields.io/badge/Frontend-React%20%7C%20TypeScript%20%7C%20Tailwind-blue?style=flat-square&logo=react)
 ![Motion](https://img.shields.io/badge/Design-Framer%20Motion-pink?style=flat-square&logo=framer)
 ![Build](https://img.shields.io/badge/Bundler-Vite-purple?style=flat-square&logo=vite)
-![License](https://img.shields.io/badge/Licença-Copyright%202025%20Isabelli%20Mocci-red?style=flat-square&logo=creative-commons&logoColor=white)
+![License](https://img.shields.io/badge/License-Copyright%202025%20Isabelli%20Mocci-red?style=flat-square&logo=creative-commons&logoColor=white)
 
 ---
 
-### Olá! Seja bem-vindo(a) ao meu portfólio pessoal.  
+### Hello! Welcome to my personal portfolio.
 
 > [!WARNING]\
-> **Este projeto está protegido por direitos autorais. Todos os direitos reservados a Isabelli Mocci.** _O código aqui presente pode ser visualizado, mas **não pode ser copiado, modificado ou reutilizado** sem permissão explícita. Para mais detalhes, consulte o arquivo [`LICENSE.md`](./LICENSE.md)_
+> **This project is protected by copyright. All rights reserved to Isabelli Mocci.** _The code here can be viewed, but **cannot be copied, modified or reused** without explicit permission. For more details, see the [`LICENSE.md`](./LICENSE.md) file_
 
 ---
 
-## ✨ Sobre mim
+## ✨ About me
 
-Sou uma Desenvolvedora front-end que combina **conhecimento técnico** e **sensibilidade visual** para criar experiências web memoráveis. Atualmente estou estudando **React** e **TypeScript**, com foco em construir sites com movimento.
+I'm a frontend developer who combines **technical knowledge** and **visual sensitivity** to create memorable web experiences. I'm currently studying **React** and **TypeScript**, with a focus on building sites with motion.
 
-Gosto de animações intencionais e inesquecíveis.
+I like intentional and unforgettable animations.
 
-Meus projetos não são só webpages bonitas: são narrativas visuais que convidam o usuário a pausar a navegação e interagir, explorar curiosidade.
+My projects are not just beautiful webpages: they are visual narratives that invite users to pause browsing and interact, explore curiosity.
 
-Quer ver o que acontece quando código vira arte?
+Want to see what happens when code becomes art?
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Technologies used
 
 - React 19  
 - TypeScript  
@@ -38,22 +38,22 @@ Quer ver o que acontece quando código vira arte?
 
 ---
 
-## 📁 Projetos em destaque
+## 📁 Featured projects
 
-{ Em atualização }
+{ In progress }
 
 ---
 
-## 📬 Contato
+## 📬 Contact
 
-Quer trocar uma ideia ou contratar?
+Want to chat or hire?
 
 - Email: **isabellimocci.tech@gmail.com**  
 - LinkedIn: [linkedin.com/in/isabelli-mocci](https://linkedin.com/in/isabelli-mocci)  
-- Portfólio: *em breve* 💻
+- Portfolio: *coming soon* 💻
 
 ---
 
 <p align="center">
-  <small>© 2025 Isabelli Mocci — Todos os direitos reservados.</small>
+  <small>© 2025 Isabelli Mocci — All rights reserved.</small>
 </p>

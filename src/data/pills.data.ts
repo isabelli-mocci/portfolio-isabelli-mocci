@@ -37,7 +37,7 @@ export const pillsData = [
     initialY: '87%',
   },
   {
-    text: 'brazilian',
+    text: 'brazillian',
     icon: Palmtree,
     initialRotation: 15,
     initialX: '20%',
@@ -68,6 +68,6 @@ export const pillsPositionsCompact = [
   { left: '80%', top: '-10%' },  // ex-teacher
   { left: '85%', top: '40%' },  // book obsessed
   { left: '20%', top: '20%' },  // motion lover
-  { left: '60%', top: '55%' },  // brazilian
+  { left: '60%', top: '55%' },  // brazillian
   { left: '-15%', top: '60%' },  // digital illustrator
 ];

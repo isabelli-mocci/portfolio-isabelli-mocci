@@ -145,7 +145,7 @@ body {
   font-family: 'PP Neue Montreal', sans-serif;
 }
 
-/**  scroll girando */
+/**  rotating scroll */
 @keyframes spin {
   100% {
     transform: rotate(360deg);

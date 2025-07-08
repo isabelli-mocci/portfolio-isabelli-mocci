@@ -20,9 +20,9 @@ export class ValidationService {
     const trimmedName = name.trim();
     
     if (!trimmedName) {
-      errors.name = 'Nome é obrigatório';
+      errors.name = 'Name is required';
     } else if (trimmedName.length < this.MIN_NAME_LENGTH) {
-      errors.name = `Nome deve ter pelo menos ${this.MIN_NAME_LENGTH} caracteres`;
+      errors.name = `Name must have at least ${this.MIN_NAME_LENGTH} characters`;
     }
   }
 
@@ -30,15 +30,15 @@ export class ValidationService {
     const trimmedEmail = email.trim();
     
     if (!trimmedEmail) {
-      errors.email = 'Email é obrigatório';
+      errors.email = 'Email is required';
     } else if (!this.EMAIL_REGEX.test(trimmedEmail)) {
-      errors.email = 'Email inválido';
+      errors.email = 'Invalid email';
     }
   }
 
   private static validateSubject(subject: string, errors: FormErrors): void {
     if (!subject.trim()) {
-      errors.subject = 'Assunto é obrigatório';
+      errors.subject = 'Subject is required';
     }
   }
 
@@ -46,9 +46,9 @@ export class ValidationService {
     const trimmedMessage = message.trim();
     
     if (!trimmedMessage) {
-      errors.message = 'Mensagem é obrigatória';
+      errors.message = 'Message is required';
     } else if (trimmedMessage.length < this.MIN_MESSAGE_LENGTH) {
-      errors.message = `Mensagem deve ter pelo menos ${this.MIN_MESSAGE_LENGTH} caracteres`;
+      errors.message = `Message must have at least ${this.MIN_MESSAGE_LENGTH} characters`;
     }
   }
 

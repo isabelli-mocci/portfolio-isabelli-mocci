@@ -1,22 +1,22 @@
-// Configurações do EmailJS
-// Para obter essas informações:
-// 1. Acesse https://www.emailjs.com/
-// 2. Crie uma conta gratuita
-// 3. Configure um serviço de email (Gmail recomendado)
-// 4. Crie um template de email
-// 5. Substitua os valores abaixo pelos seus
+// EmailJS configuration
+// To get this information:
+// 1. Go to https://www.emailjs.com/
+// 2. Create a free account
+// 3. Set up an email service (Gmail recommended)
+// 4. Create an email template
+// 5. Replace the values below with yours
 
 export const EMAILJS_CONFIG = {
-  SERVICE_ID: 'service_2s4wju7',     // Seu Service ID
-  TEMPLATE_ID: 'template_0c471fd',   // Seu Template ID
-  PUBLIC_KEY: 'QrlMypY6HfLJpGGbp',   // Sua chave pública
-  TO_EMAIL: 'isabellimocci.tech@gmail.com', // Seu email de destino
+  SERVICE_ID: 'service_2s4wju7',     // Your Service ID
+  TEMPLATE_ID: 'template_0c471fd',   // Your Template ID
+  PUBLIC_KEY: 'QrlMypY6HfLJpGGbp',   // Your public key
+  TO_EMAIL: 'isabellimocci.tech@gmail.com', // Your destination email
 } as const;
 
-// Template de exemplo para o EmailJS:
-// Assunto: Nova mensagem de contato de {{from_name}}
-// Corpo:
-// Nome: {{from_name}}
+// Example template for EmailJS:
+// Subject: New contact message from {{from_name}}
+// Body:
+// Name: {{from_name}}
 // Email: {{from_email}}
-// Assunto: {{subject}}
-// Mensagem: {{message}}
+// Subject: {{subject}}
+// Message: {{message}}

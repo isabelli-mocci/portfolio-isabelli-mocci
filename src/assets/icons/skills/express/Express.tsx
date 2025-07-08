@@ -4,7 +4,7 @@ import React from 'react';
 
 const Express: React.FC<{ className?: string }> = ({ className }) => (
   <svg
-    className={className} // Mantenha esta propriedade
+    className={className} // Keep this property
     width='100%'
     height='100%'
     viewBox='0 0 256 256'

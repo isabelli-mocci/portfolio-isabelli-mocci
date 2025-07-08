@@ -50,11 +50,11 @@ export const useContactForm = () => {
       const result = await FormSubmissionService.submitContactForm(formData);
       
       if (result.success) {
-        NotificationService.showSuccess('Mensagem enviada com sucesso!');
+        NotificationService.showSuccess('Message sent successfully!');
         setFormData(INITIAL_FORM_DATA);
         setErrors({});
       } else {
-        NotificationService.showError(result.error || 'Erro desconhecido');
+        NotificationService.showError(result.error || 'Unknown error');
       }
     } finally {
       setIsSubmitting(false);

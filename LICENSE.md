@@ -1,33 +1,33 @@
 # 📄 LICENSE.md
 
-© 2025 **Isabelli Cristina Mocci**. Todos os direitos reservados.
+© 2025 **Isabelli Cristina Mocci**. All rights reserved.
 
-Este repositório faz parte do portfólio pessoal de **Isabelli Cristina Mocci** e está protegido por direitos autorais. Nenhuma parte deste código pode ser copiada, reproduzida, modificada, distribuída ou utilizada para fins comerciais ou educacionais sem permissão expressa e por escrito da autora.
-
----
-
-## ✅ Permissões concedidas:
-
-- Visualização do código para fins de **demonstração pessoal** ou **avaliação profissional**.
+This repository is part of **Isabelli Cristina Mocci**'s personal portfolio and is protected by copyright. No part of this code may be copied, reproduced, modified, distributed or used for commercial or educational purposes without express written permission from the author.
 
 ---
 
-## ❌ Proibições explícitas:
+## ✅ Permissions granted:
 
-- Uso em projetos próprios (comerciais ou pessoais).
-- Modificação e redistribuição do conteúdo.
-- Publicação ou republicação, mesmo com alterações.
-- Uso de partes do código como base para outros trabalhos.
+- Viewing the code for **personal demonstration** or **professional evaluation** purposes.
 
 ---
 
-## ℹ️ Observações
+## ❌ Explicit prohibitions:
 
-Este código é disponibilizado **apenas com propósito expositivo** e serve exclusivamente para demonstrar as habilidades técnicas e criativas da autora.
+- Use in own projects (commercial or personal).
+- Modification and redistribution of content.
+- Publication or republication, even with changes.
+- Use of parts of the code as a basis for other works.
 
-Caso deseje utilizar qualquer parte deste projeto, entre em contato diretamente:
+---
+
+## ℹ️ Notes
+
+This code is made available **for exhibition purposes only** and serves exclusively to demonstrate the author's technical and creative skills.
+
+If you wish to use any part of this project, contact directly:
 
 - 📧 **isabellimocci.tech@gmail.com**  
 - 🔗 [linkedin.com/in/isabelli-mocci](https://linkedin.com/in/isabelli-mocci)
 
-A violação destas condições poderá resultar em medidas legais conforme a legislação vigente de direitos autorais (Lei nº 9.610/98 - Brasil).
+Violation of these conditions may result in legal action in accordance with current copyright legislation (Law No. 9.610/98 - Brazil).

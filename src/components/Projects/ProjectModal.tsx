@@ -44,10 +44,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, onNextPro
           onClick={onClose}
         >
           {onPrevProject && (
-            <NavigationArrow direction="left" onClick={onPrevProject} ariaLabel="Projeto anterior" />
+            <NavigationArrow direction="left" onClick={onPrevProject} ariaLabel="Previous project" />
           )}
           {onNextProject && (
-            <NavigationArrow direction="right" onClick={onNextProject} ariaLabel="Próximo projeto" />
+            <NavigationArrow direction="right" onClick={onNextProject} ariaLabel="Next project" />
           )}
         </div>
         <motion.div
@@ -60,7 +60,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, onNextPro
             <button
               onClick={onClose}
               className="absolute top-3 right-3 text-bg-dark transition-colors duration-200 text-2xl font-bold rounded-full p-0.5 bg-white/30 hover:bg-white/60 backdrop-blur-lg border border-white/30 shadow-[0_2px_8px_0_rgba(0,0,0,0.10)] z-50 flex items-center justify-center w-8 h-8"
-              aria-label="Fechar modal"
+              aria-label="Close modal"
               type="button"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" strokeWidth={2.8} stroke="currentColor" className="w-5 h-5">
@@ -68,7 +68,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, onNextPro
               </svg>
             </button>
             <div className="flex flex-col gap-2">
-              <h3 className="text-primary-color text-3xl font-medium leading-snug tracking-tight drop-shadow-sm text-left mt-4">
+              <h3 className="text-primary-color/60 text-3xl font-medium leading-snug tracking-tight drop-shadow-sm text-left mt-4">
                 {project.title}
               </h3>
               <p className="text-neutral-500 text-lg font-semibold italic mb-4 text-left">
