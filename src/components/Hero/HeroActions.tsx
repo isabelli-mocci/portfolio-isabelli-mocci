@@ -15,12 +15,13 @@ const HeroActions: React.FC<HeroActionsProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`z-10 mt-10 flex flex-col sm:flex-row gap-4 ${className}`}>
+    <div className={`z-10 mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full max-w-md mx-auto ${className}`}>
       <HeroButton
         variant="primary"
         icon={<RayIcon className="ray-icon" />}
         text={HERO_SECTION_CONFIG.actions.seeWork.text}
         onClick={onSeeWorkClick}
+        className="w-full sm:w-auto"
       />
       
       <HeroButton
@@ -28,6 +29,7 @@ const HeroActions: React.FC<HeroActionsProps> = ({
         icon={<DownloadIcon className="download-icon" />}
         text={HERO_SECTION_CONFIG.actions.downloadCV.text}
         onClick={onDownloadCVClick}
+        className="w-full sm:w-auto"
       />
     </div>
   );

@@ -37,7 +37,7 @@ export const FOOTER_CONFIG: FooterConfig = {
     },
     {
       id: 'dev',
-      href: 'https://dev.to/isabellimocci',
+      href: 'https://dev.to/isabelli_mocci',
       label: 'Dev.to',
       icon: FaDev,
       isExternal: true,

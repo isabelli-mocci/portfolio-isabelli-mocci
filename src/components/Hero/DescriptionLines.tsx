@@ -16,7 +16,7 @@ export const DescriptionLines: React.FC<DescriptionLinesProps> = ({
   const { highlight } = HERO_HEADING_CONFIG.styling;
 
   return (
-    <div className={className} data-testid="description-lines">
+    <div className={`mt-2 space-y-1 sm:space-y-4 ${className}`} data-testid="description-lines">
       <HeadingText variant="secondary">
         <span className={highlight}>{description.prefix}</span> blends technical expertise and
       </HeadingText>

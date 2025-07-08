@@ -51,7 +51,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({ className }) => {
   return (
     <motion.div
       animate={controls}
-      className={`absolute left-1/2 top-[25%] z-10 select-none ${dragging ? 'scale-105' : ''} ${className || ''}`}
+      className={`absolute left-1/2 top-[25%] sm:top-[26%] z-10 select-none ${dragging ? 'scale-105' : ''} ${className || ''}`}
       style={{
         translateX: '-50%',
         translateY: '-50%',
@@ -62,7 +62,7 @@ const DraggableLogo: React.FC<DraggableLogoProps> = ({ className }) => {
       <img
         src={Logo}
         alt='Logo'
-        className='h-24 w-auto mx-auto pointer-events-none'
+        className='h-20 md:h-24 w-auto mx-auto pointer-events-none'
         draggable={false}
       />
     </motion.div>

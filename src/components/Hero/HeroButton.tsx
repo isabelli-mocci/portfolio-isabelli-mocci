@@ -11,7 +11,7 @@ interface HeroButtonProps {
 }
 
 const BUTTON_STYLES = {
-  base: 'relative flex items-center gap-2 px-6 py-2 rounded-full font-semibold text-sm transition group',
+  base: 'relative flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition group min-h-[44px]',
   variants: {
     primary: 'bg-primary-color text-black hover:bg-lime-300',
     secondary: 'bg-white/10 text-white border border-white/30 backdrop-blur-md hover:bg-white/20 overflow-hidden',

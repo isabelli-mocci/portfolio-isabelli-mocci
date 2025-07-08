@@ -30,14 +30,14 @@ export const HERO_HEADING_CONFIG: HeroHeadingConfig = {
     },
   },
   styling: {
-    container: 'z-10 flex flex-col items-center justify-center text-4xl md:text-6xl leading-tight text-center w-full',
+    container: 'z-10 flex flex-col justify-center text-2xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-center w-full max-w-8xl mx-auto px-4',
     headingPrimary: 'text-text-white',
     headingSecondary: 'text-text-gray',
     highlight: 'text-text-white',
     iconWrapper: {
       base: 'inline-block align-middle',
       positions: {
-        left: 'mr-2',
+        left: 'mr-1 sm:mr-2',
         right: 'relative ml-1',
       },
     },
