@@ -12,7 +12,7 @@ const SkillsSectionHeader: React.FC<SkillsSectionHeaderProps> = memo(({
   subtitle = SKILLS_SECTION_CONFIG.content.subtitle,
 }) => (
   <>
-    <h2 className={SKILLS_SECTION_CONFIG.styles.title}>
+    <h2 className={`skills-title ${SKILLS_SECTION_CONFIG.styles.title}`}>
       <span className={SKILLS_SECTION_CONFIG.styles.iconAccent}>
         <Sparkle className={SKILLS_SECTION_CONFIG.styles.iconSparkle} />
       </span>

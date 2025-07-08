@@ -22,12 +22,12 @@ export const FooterCta: React.FC<FooterCtaProps> = ({ config, className = '' }) 
         ease: FOOTER_ANIMATIONS.cta.ease,
       }}
     >
-      <h2 className={FOOTER_STYLES.ctaHeading}>
-        <span className={FOOTER_STYLES.ctaPrimary}>
+      <h2 className={`footer-cta ${FOOTER_STYLES.ctaHeading}`}>
+        <span className={`footer-cta ${FOOTER_STYLES.ctaPrimary}`}>
           {config.primaryText}
         </span>
         <br />
-        <span className={FOOTER_STYLES.ctaSecondary}>
+        <span className={`footer-cta-secondary ${FOOTER_STYLES.ctaSecondary}`}>
           {config.secondaryText}
         </span>
       </h2>

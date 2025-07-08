@@ -9,7 +9,7 @@ export const AboutHeading = () => {
   return (
     <h2
       id="about-heading"
-      className="text-primary-color mb-0 leading-none text-left relative"
+      className="about-title text-primary-color mb-0 leading-none text-left relative"
       style={headingConfig}
     >
       <HeadingContent />
