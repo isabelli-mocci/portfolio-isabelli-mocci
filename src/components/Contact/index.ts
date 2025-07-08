@@ -1,8 +1,8 @@
 // Contact Button Components
-export { ContactButton as default } from '../ContactButton/ContactButton';
-export { ArrowIcon } from '../ContactButton/ArrowIcon';
-export { ButtonContent } from '../ContactButton/ButtonContent';
-export { ButtonBackground, ButtonOverlay } from '../ContactButton/ButtonElements';
+export { ContactButton as default } from '../Navigation/ContactButton';
+export { ArrowIcon } from '../Navigation/ArrowIcon';
+export { ButtonContent } from '../Navigation/ButtonContent';
+export { ButtonBackground, ButtonOverlay } from '../Navigation/ButtonElements';
 export { SectionWrapper } from '../ContactButton/SectionWrapper';
 
 // Contact Section Components

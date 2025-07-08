@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactButton from './ContactButton';
+import ContactButton from '../Navigation/ContactButton';
 
 interface SectionWrapperProps {
   readonly onClick?: () => void;
