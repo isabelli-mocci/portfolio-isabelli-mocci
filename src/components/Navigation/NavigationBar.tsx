@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import type { NavigationBarProps } from '../../types/navigation.types';
 import { NAVIGATION_CONFIG } from '../../config/navigation.config';
 import { NAVIGATION_STYLES } from '../../styles/navigation.styles';
@@ -7,6 +7,8 @@ import { combineClassNames } from '../../utils/className.utils';
 import { useNavigationService } from '../../hooks/useNavigationService';
 import { NavigationList } from './NavigationList';
 import ContactButton from './ContactButton';
+import HamburgerButton from './HamburgerButton';
+import MobileMenu from './MobileMenu';
 
 const NavigationBarComponent = ({
   links = NAVIGATION_CONFIG.links,
@@ -17,6 +19,8 @@ const NavigationBarComponent = ({
   showContactButton = true,
   onContactClick,
 }: NavigationBarProps) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const { state, handleNavigationClick } = useNavigationService({
     links,
     smoothScroll: NAVIGATION_CONFIG.behavior.smooth,
@@ -34,26 +38,50 @@ const NavigationBarComponent = ({
   );
 
   return (
-    <header
-      className={combineClassNames(NAVIGATION_STYLES.container.header, className)}
-      data-testid={testId}
-      role="banner"
-    >
-      <nav className={`${navClassName} apple-nav-blur apple-nav-transition`} role="navigation">
-        <NavigationList
-          items={links}
-          activeItemId={currentActiveId}
-          onItemClick={handleNavigationClick}
-          variant="horizontal"
-        />
-        
-        {showContactButton && (
-          <div className={NAVIGATION_STYLES.container.actionsContainer}>
-            <ContactButton onClick={onContactClick} />
+    <>
+      <header
+        className={combineClassNames(NAVIGATION_STYLES.container.header, className)}
+        data-testid={testId}
+        role="banner"
+      >
+        <nav className={`${navClassName} apple-nav-blur apple-nav-transition`} role="navigation">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex md:items-center md:justify-between md:w-full">
+            <NavigationList
+              items={links}
+              activeItemId={currentActiveId}
+              onItemClick={handleNavigationClick}
+              variant="horizontal"
+            />
+            
+            {showContactButton && (
+              <div className={NAVIGATION_STYLES.container.actionsContainer}>
+                <ContactButton onClick={onContactClick} />
+              </div>
+            )}
           </div>
-        )}
-      </nav>
-    </header>
+
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden items-center justify-between w-full">
+            <div className="text-primary-color font-bold text-lg">IM</div>
+            <HamburgerButton
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        links={links}
+        activeItemId={currentActiveId}
+        onItemClick={handleNavigationClick}
+        onContactClick={onContactClick}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
   const { handleSeeWork, handleDownloadCV } = useHeroActions();
 
   return (
-    <section className={`${HERO_STYLES.section} ${className}`}>
+    <section id="hero" className={`${HERO_STYLES.section} ${className}`}>
       <HeroBackground />
       <Logo />
       <HeroHeading />

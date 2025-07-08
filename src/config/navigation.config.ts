@@ -5,7 +5,7 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
     { 
       id: 'home',
       name: 'Home', 
-      href: '#home',
+      href: '#hero',
       ariaLabel: 'Navigate to home section'
     },
     { 
@@ -30,7 +30,8 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
       id: 'blogs',
       name: 'Blogs', 
       href: '#blogs',
-      ariaLabel: 'Navigate to blogs section'
+      ariaLabel: 'Navigate to blogs section',
+      disabled: true
     },
   ] as const,
   layout: {

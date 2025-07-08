@@ -1,8 +1,6 @@
 const HeroRay = ({ className }: { className?: string }) => (
   <svg
-    className={className}
-    width='40'
-    height='40'
+    className={`w-4 h-4 sm:w-6 sm:h-6 md:w-10 md:h-10 ${className || ''}`}
     viewBox='0 0 20 20'
     fill='none'
     stroke='#adff2f'

@@ -16,6 +16,10 @@ const NavigationItemComponent = ({
   );
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (link.disabled) {
+      event.preventDefault();
+      return;
+    }
     if (onClick) {
       event.preventDefault();
       onClick(link);
@@ -24,11 +28,14 @@ const NavigationItemComponent = ({
 
   return (
     <a
-      href={link.href}
-      className={`${className} apple-nav-item apple-nav-transition apple-nav-text apple-nav-parallax`}
+      href={link.disabled ? undefined : link.href}
+      className={`${className} apple-nav-item apple-nav-transition apple-nav-text apple-nav-parallax ${
+        link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''
+      }`}
       onClick={handleClick}
       aria-label={link.ariaLabel || link.name}
       aria-current={isActive ? 'page' : undefined}
+      aria-disabled={link.disabled}
       data-testid={`nav-item-${link.id}`}
     >
       {link.icon && (

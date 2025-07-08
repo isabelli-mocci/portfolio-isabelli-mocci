@@ -10,7 +10,7 @@ export const HERO_SECTION_CONFIG: HeroSectionConfig = {
     },
     downloadCV: {
       text: 'DOWNLOAD CV',
-      downloadUrl: '/assets/cv/isabelli-mocci-cv.pdf',
+      downloadUrl: '/src/assets/resume/cv_isabelli_cristina_mocci_dev_front-end.pdf',
     },
   },
   scroll: {
