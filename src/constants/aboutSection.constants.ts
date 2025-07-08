@@ -18,7 +18,7 @@ export const ABOUT_SECTION_CONSTANTS = {
     RAY_ICON_LEFT: '55%',
     RAY_ICON_TOP: '58%',
     
-    HEADING_FONT_SIZE: 'clamp(5rem, 18vw, 16rem)',
+    HEADING_FONT_SIZE: 'clamp(3rem, 18vw, 16rem)',
     HEADING_LETTER_SPACING: '-0.04em',
     HEADING_TEXT_SHADOW: '0 4px 24px rgba(0,0,0,0.25)'
   },

@@ -5,6 +5,7 @@ export interface NavigationLink {
   readonly icon?: string;
   readonly isExternal?: boolean;
   readonly ariaLabel?: string;
+  readonly disabled?: boolean;
 }
 
 export interface NavigationItemProps {

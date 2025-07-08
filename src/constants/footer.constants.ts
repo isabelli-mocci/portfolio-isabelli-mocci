@@ -47,9 +47,9 @@ export const FOOTER_STYLES = {
   ctaSection: 'relative w-full bg-gradient-to-b from-bg-dark/50 to-bg-medium/80 backdrop-blur-sm border-t border-white/5',
   ctaHighlight: 'absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary-color/30 to-transparent',
   ctaContainer: 'py-20 px-8',
-  ctaHeading: 'text-white text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-center leading-tight max-w-4xl mx-auto',
+  ctaHeading: 'text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-center leading-tight max-w-4xl mx-auto',
   ctaPrimary: 'bg-gradient-to-r from-primary-color via-primary-color to-green-300 bg-clip-text text-transparent font-medium',
-  ctaSecondary: 'text-white/70 text-2xl md:text-3xl lg:text-4xl font-extralight mt-4 block',
+  ctaSecondary: 'text-white/70 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extralight mt-4 block',
   
   copyrightSection: 'relative bg-bg-medium/40 backdrop-blur-md border-t border-white/5',
   copyrightContainer: 'py-6 px-8 text-center',

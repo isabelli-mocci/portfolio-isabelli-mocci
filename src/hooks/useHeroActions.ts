@@ -20,7 +20,7 @@ export const useHeroActions = () => {
     if (downloadUrl) {
       const link = document.createElement('a');
       link.href = downloadUrl;
-      link.download = 'isabelli-mocci-cv.pdf';
+      link.download = 'cv_isabelli_cristina_mocci_dev_front-end.pdf';
       link.click();
     }
   }, []);
