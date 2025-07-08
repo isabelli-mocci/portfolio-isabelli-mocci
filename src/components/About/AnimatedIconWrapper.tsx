@@ -12,13 +12,13 @@ const iconConfig = {
     Icon: GoHeartFill,
     ariaLabel: 'heart',
     animationClass: 'heart-animate',
-    style: { fontSize: '.9em', width: '1.5em' }
+    style: { fontSize: '.8em'}
   },
   arrow: {
     Icon: BsArrowRight,
     ariaLabel: 'arrow right',
     animationClass: 'arrow-animate',
-    style: { fontSize: '1.2em', width: '1.5em' }
+    style: { fontSize: '.8em', width: '1.2em' }
   }
 };
 
