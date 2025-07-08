@@ -25,18 +25,18 @@ const NavigationItemComponent = ({
   return (
     <a
       href={link.href}
-      className={className}
+      className={`${className} apple-nav-item apple-nav-transition apple-nav-text apple-nav-parallax`}
       onClick={handleClick}
       aria-label={link.ariaLabel || link.name}
       aria-current={isActive ? 'page' : undefined}
       data-testid={`nav-item-${link.id}`}
     >
       {link.icon && (
-        <span className="mr-2" aria-hidden="true">
+        <span className="mr-2 transition-transform duration-300 hover:scale-110" aria-hidden="true">
           {link.icon}
         </span>
       )}
-      {link.name}
+      <span className="relative z-10">{link.name}</span>
     </a>
   );
 };

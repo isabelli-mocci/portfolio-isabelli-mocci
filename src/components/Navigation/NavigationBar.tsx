@@ -6,7 +6,6 @@ import { createNavigationContainerClassName } from '../../utils/navigation.utils
 import { combineClassNames } from '../../utils/className.utils';
 import { useNavigationService } from '../../hooks/useNavigationService';
 import { NavigationList } from './NavigationList';
-import StatusIndicator from '../StatusIndicator';
 import ContactButton from '../ContactButton/ContactButton';
 
 const NavigationBarComponent = ({
@@ -15,7 +14,6 @@ const NavigationBarComponent = ({
   testId = 'navigation-bar',
   activeItemId,
   onItemClick,
-  showStatusIndicator = true,
   showContactButton = true,
   onContactClick,
 }: NavigationBarProps) => {
@@ -41,9 +39,7 @@ const NavigationBarComponent = ({
       data-testid={testId}
       role="banner"
     >
-      <nav className={navClassName} role="navigation">
-        {showStatusIndicator && <StatusIndicator />}
-        
+      <nav className={`${navClassName} apple-nav-blur apple-nav-transition`} role="navigation">
         <NavigationList
           items={links}
           activeItemId={currentActiveId}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { COMPONENT_BORDER_RADIUS } from '../../constants/borderRadius.constants';
 
 interface BentoCardProps {
   children: React.ReactNode;

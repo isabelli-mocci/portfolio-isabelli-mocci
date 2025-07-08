@@ -28,7 +28,23 @@ const ProjectsSection: React.FC = () => {
     >
       <div className='w-full flex flex-col items-center relative z-10'>
         <div className='w-full mt-12'>
-          <InfiniteMarquee items={MARQUEE_LABELS} />
+          <InfiniteMarquee
+            items={[...MARQUEE_LABELS]}
+            configuration={{
+              speed: 30,
+              direction: 'left',
+              rotationAngle: -3,
+              duplicateCount: 12,
+            }}
+            styleConfiguration={{
+              containerClassName:
+                'relative w-full overflow-hidden bg-bg-dark/80 backdrop-blur-sm py-4 border-t border-b border-white/10 flex items-center',
+              itemClassName:
+                'text-lg md:text-xl px-8 inline-flex items-center tracking-[0.2em] uppercase font-medium',
+              separatorClassName: 'ml-16 text-primary-color/70',
+              separatorSymbol: '✦',
+            }}
+          />
         </div>
         <ProjectsTitle />
         <div className='mb-16 sm:mb-24 md:mb-32'></div>

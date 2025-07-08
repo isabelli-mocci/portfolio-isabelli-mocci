@@ -12,6 +12,7 @@ export const ArrowIcon: FC = memo(() => (
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
+    className="contact-icon-rotate"
   >
     <path d={ARROW_ICON_CONFIG.PATH} />
   </svg>

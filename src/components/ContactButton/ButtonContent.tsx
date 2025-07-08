@@ -13,7 +13,7 @@ export const ButtonContent: FC<ButtonContentProps> = memo(({ label }) => {
 
   return (
     <span className={styles.content}>
-      {label}
+      <span className="contact-btn-text">{label}</span>
       <span className={iconClasses}>
         <ArrowIcon />
       </span>

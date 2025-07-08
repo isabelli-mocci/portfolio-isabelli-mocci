@@ -64,6 +64,78 @@
 
 /* --- Global Styles --- */
 
+/* Apple-style navigation enhancements */
+@supports (backdrop-filter: blur(24px)) {
+  .apple-nav-blur {
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.1);
+  }
+}
+
+@supports not (backdrop-filter: blur(24px)) {
+  .apple-nav-blur {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)) !important;
+  }
+}
+
+/* Premium micro-interactions */
+.apple-nav-transition {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition-duration: 700ms;
+  will-change: transform, opacity, backdrop-filter;
+}
+
+/* Sophisticated glow effects */
+.apple-nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.apple-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(173, 255, 47, 0.15) 0%, rgba(173, 255, 47, 0.05) 50%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+  opacity: 0;
+}
+
+.apple-nav-item:hover::before {
+  width: 140%;
+  height: 140%;
+  opacity: 1;
+}
+
+/* Refined typography with better contrast */
+.apple-nav-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-variation-settings: 'wght' 450;
+  letter-spacing: 0.01em;
+}
+
+.apple-nav-text:hover {
+  font-variation-settings: 'wght' 500;
+  text-shadow: 0 2px 8px rgba(173, 255, 47, 0.2);
+}
+
+/* Subtle parallax effect */
+@media (prefers-reduced-motion: no-preference) {
+  .apple-nav-parallax {
+    transform-style: preserve-3d;
+  }
+  
+  .apple-nav-parallax:hover {
+    transform: translateZ(8px);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -133,6 +205,51 @@ body {
   border-radius: 8px;
 }
 
+/* Magnetic hover effect for ultra-premium feel */
+@media (hover: hover) and (pointer: fine) {
+  .magnetic-nav {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .magnetic-nav:hover {
+    transform: translateY(-2px) scale(1.005);
+  }
+}
+
+/* Breathing animation for status indicator */
+@keyframes breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.status-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Refined glassmorphism */
+.glass-nav {
+  background: 
+    linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%),
+    radial-gradient(circle at 20% 50%, rgba(173,255,47,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255,255,255,0.02) 0%, transparent 50%);
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.glass-nav:hover {
+  background: 
+    linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%),
+    radial-gradient(circle at 20% 50%, rgba(173,255,47,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255,255,255,0.03) 0%, transparent 50%);
+  box-shadow: 
+    0 12px 48px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 0 20px rgba(173,255,47,0.1);
+}
+
 @media (max-width: 640px) {
   input, textarea, select {
     font-size: 16px !important;
@@ -169,4 +286,175 @@ body {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+/* Premium contact button effects */
+.premium-contact-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(173, 255, 47, 0.2) 0%, rgba(173, 255, 47, 0.1) 50%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  opacity: 0;
+}
+
+.premium-contact-btn:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+}
+
+/* Text glow effect for contact button */
+.contact-btn-text {
+  position: relative;
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-contact-btn:hover .contact-btn-text {
+  color: #000000;
+  text-shadow: none;
+  filter: brightness(1);
+}
+
+/* Shimmer effect for contact button */
+.contact-btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(173, 255, 47, 0.1),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+}
+
+.contact-btn-shimmer:hover::after {
+  left: 100%;
+}
+
+/* Enhanced focus states for accessibility */
+.premium-contact-btn:focus-visible {
+  outline: 2px solid rgba(173, 255, 47, 0.5);
+  outline-offset: 2px;
+}
+
+/* Micro-interaction for button press */
+.premium-contact-btn:active {
+  transform: scale(0.98) translateY(1px);
+}
+
+/* Smooth icon rotation on hover */
+.contact-icon-rotate {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-contact-btn:hover .contact-icon-rotate {
+  transform: rotate(45deg) scale(1.1);
+  color: #000000;
+}
+
+/* Subtle pulsing effect when focused */
+.premium-contact-btn:focus-visible {
+  animation: contact-pulse 2s ease-in-out infinite;
+}
+
+@keyframes contact-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(173, 255, 47, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(173, 255, 47, 0);
+  }
+}
+
+/* Hero button premium effects */
+.hero-btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  opacity: 0;
+}
+
+.hero-btn-primary:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+}
+
+.hero-btn-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(173, 255, 47, 0.1) 0%, rgba(173, 255, 47, 0.05) 50%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  opacity: 0;
+}
+
+.hero-btn-secondary:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+}
+
+.hero-btn-text {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-btn-icon {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-btn-primary:hover .hero-btn-icon,
+.hero-btn-secondary:hover .hero-btn-icon {
+  transform: scale(1.1);
 }

@@ -28,7 +28,7 @@ export const ContactButton: FC<ContactButtonProps> = ({
     >
       <button
         type="button"
-        className={buttonClassName}
+        className={`${buttonClassName} premium-contact-btn apple-nav-transition contact-btn-shimmer`}
         onClick={handleClick}
         disabled={disabled}
       >

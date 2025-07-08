@@ -1,7 +1,7 @@
 import type { MarqueeConfiguration, MarqueeStyleConfiguration } from '../types/infiniteMarquee.types';
 
 export const DEFAULT_MARQUEE_CONFIGURATION: MarqueeConfiguration = {
-  speed: 60,
+  speed: 1,
   direction: 'left',
   rotationAngle: -3,
   duplicateCount: 3,

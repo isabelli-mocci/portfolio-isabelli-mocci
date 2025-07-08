@@ -34,12 +34,12 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
     },
   ] as const,
   layout: {
-    maxWidth: 'max-w-4xl',
-    minHeight: 'min-h-[72px]',
-    zIndex: 40,
+    maxWidth: 'max-w-3xl',
+    minHeight: 'min-h-[48px]',
+    zIndex: 50,
   },
   behavior: {
     smooth: true,
-    offset: 72,
+    offset: 48,
   },
 } as const;
