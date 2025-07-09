@@ -56,6 +56,7 @@ const CustomCursor: React.FC = () => {
         height="100%"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
+        transform="scale(-1, 1)"
       >
         <path d={ARROW_ICON_CONFIG.PATH} />
       </svg>

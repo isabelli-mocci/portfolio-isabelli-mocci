@@ -1,6 +1,6 @@
 {
-  "name": "Isabelli Mocci",
-  "short_name": "Isabelli Mocci",
+  "name": "IsabelliMocci",
+  "short_name": "IsabelliMocci",
   "icons": [
     {
       "src": "/src/assets/favicon/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#b01237",
-  "background_color": "#b01237",
+  "theme_color": "#010201",
+  "background_color": "#010201",
   "display": "standalone"
 }

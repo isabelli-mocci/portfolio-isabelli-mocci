@@ -26,98 +26,135 @@ const backdropVariants = {
   exit: { opacity: 0, transition: { duration: 0.2 } },
 };
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, onNextProject, onPrevProject }) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({
+  project,
+  onClose,
+  onNextProject,
+  onPrevProject,
+}) => {
   useHideHeaderNav({ isActive: !!project });
   if (!project) return null;
 
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+        className='fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8'
         variants={backdropVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
+        initial='hidden'
+        animate='visible'
+        exit='exit'
       >
         <div
-          className="absolute inset-0 bg-bg-dark bg-opacity-70 backdrop-blur-lg"
+          className='absolute inset-0 bg-bg-dark bg-opacity-70 backdrop-blur-lg'
           onClick={onClose}
         >
           {onPrevProject && (
-            <NavigationArrow direction="left" onClick={onPrevProject} ariaLabel="Previous project" />
+            <NavigationArrow
+              direction='left'
+              onClick={onPrevProject}
+              ariaLabel='Previous project'
+            />
           )}
           {onNextProject && (
-            <NavigationArrow direction="right" onClick={onNextProject} ariaLabel="Next project" />
+            <NavigationArrow
+              direction='right'
+              onClick={onNextProject}
+              ariaLabel='Next project'
+            />
           )}
         </div>
         <motion.div
-          className="relative flex flex-row w-full max-w-6xl h-[90vh] bg-gradient-to-br from-[#23221f]/80 via-[#23221f]/70 to-[#191917]/80 text-bg-dark rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.28)] hover:shadow-[0_24px_64px_0_rgba(0,0,0,0.55)] border border-white/10 p-0 overflow-hidden backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          className='relative flex flex-row w-full max-w-6xl h-[90vh] bg-gradient-to-br from-[#23221f]/80 via-[#23221f]/70 to-[#191917]/80 text-bg-dark rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.28)] hover:shadow-[0_24px_64px_0_rgba(0,0,0,0.55)] border border-white/10 p-0 overflow-hidden backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]'
           style={{ minHeight: 'min(90vh, 700px)', maxHeight: '90vh' }}
           variants={modalVariants}
           onClick={e => e.stopPropagation()}
         >
-          <div className="flex flex-col justify-between items-start w-full max-w-[42%] h-full px-7 py-10 overflow-hidden gap-2">
+          <div className='flex flex-col justify-between items-start w-full max-w-[42%] h-full px-7 py-10 overflow-hidden gap-2'>
             <motion.button
               onClick={onClose}
-              className="absolute top-4 right-4 text-white/80 hover:text-white transition-all duration-300 ease-out rounded-full p-2 bg-gradient-to-r from-red-500/20 to-red-600/20 hover:from-red-500/40 hover:to-red-600/40 backdrop-blur-xl border border-red-400/30 hover:border-red-400/60 shadow-[0_4px_16px_0_rgba(239,68,68,0.25)] hover:shadow-[0_8px_24px_0_rgba(239,68,68,0.40)] z-50 flex items-center justify-center group"
-              aria-label="Close modal"
-              type="button"
+              className='absolute top-4 right-4 text-white/80 hover:text-white transition-all duration-300 ease-out rounded-full p-2 bg-gradient-to-r from-neutral-500/20 to-neutral-600/20 hover:from-neutral-500/40 hover:to-neutral-600/40 backdrop-blur-xl border border-neutral-400/30 hover:border-neutral-400/60  z-50 flex items-center justify-center group'
+              aria-label='Close modal'
+              type='button'
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, rotate: -90 }}
               animate={{ opacity: 1, rotate: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
             >
-              <motion.svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                strokeWidth={2.5} 
-                stroke="currentColor" 
-                className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300"
+              <motion.svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={2.5}
+                stroke='currentColor'
+                className='w-5 h-5 group-hover:rotate-90 transition-transform duration-300'
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M6 18L18 6M6 6l12 12'
+                />
               </motion.svg>
             </motion.button>
-            <div className="flex flex-col gap-2">
-              <h3 className="text-primary-color/60 text-3xl font-medium leading-snug tracking-tight drop-shadow-sm text-left mt-4">
+            <div className='flex flex-col gap-2'>
+              <h3 className='text-primary-color/60 text-3xl font-medium leading-snug tracking-tight drop-shadow-sm text-left mt-4'>
                 {project.title}
               </h3>
-              <p className="text-neutral-500 text-lg font-semibold italic mb-4 text-left">
+              <p className='text-neutral-500 text-lg font-semibold italic mb-4 text-left'>
                 {project.firmName}
               </p>
-              <div className="text-neutral-400 text-sm mb-4 text-justify" style={{ textIndent: '2em', whiteSpace: 'pre-line' }}>
-                <h4 className="text-neutral-200 text-lg font-bold mb-2 text-left" style={{ textIndent: 0 }}>Description</h4>
-                <span className="pl-0 block">{project.description}</span>
+              <div
+                className='text-neutral-400 text-sm mb-4 text-justify'
+                style={{ textIndent: '2em', whiteSpace: 'pre-line' }}
+              >
+                <h4
+                  className='text-neutral-200 text-lg font-bold mb-2 text-left'
+                  style={{ textIndent: 0 }}
+                >
+                  Description
+                </h4>
+                <span className='pl-0 block'>{project.description}</span>
               </div>
               {Array.isArray(project.myRole) && project.myRole.length > 0 && (
-                <div className="mb-5">
-                  <h4 className="text-neutral-200 text-lg font-bold mb-2 text-left">My Role</h4>
-                  <ul className="list-disc list-outside text-neutral-400 text-sm text-justify space-y-2 ml-8">
+                <div className='mb-5'>
+                  <h4 className='text-neutral-200 text-lg font-bold mb-2 text-left'>
+                    My Role
+                  </h4>
+                  <ul className='list-disc list-outside text-neutral-400 text-sm text-justify space-y-2 ml-8'>
                     {project.myRole.map((role, idx) => (
                       <li key={idx}>{role}</li>
                     ))}
                   </ul>
                 </div>
               )}
-              {Array.isArray(project.toolsUsed) && project.toolsUsed.length > 0 && (
-                <div className="mb-5">
-                  <h4 className="text-neutral-200 text-lg font-bold mb-2 text-left">Tools</h4>
-                  <div className="flex flex-wrap gap-3">
-                    {project.toolsUsed.map((tool, idx) => (
-                      <ToolBadge key={idx} name={tool.name} iconUrl={tool.iconUrl} />
-                    ))}
+              {Array.isArray(project.toolsUsed) &&
+                project.toolsUsed.length > 0 && (
+                  <div className='mb-5'>
+                    <h4 className='text-neutral-200 text-lg font-bold mb-2 text-left'>
+                      Tools
+                    </h4>
+                    <div className='flex flex-wrap gap-3'>
+                      {project.toolsUsed.map((tool, idx) => (
+                        <ToolBadge
+                          key={idx}
+                          name={tool.name}
+                          iconUrl={tool.iconUrl}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>
-            <ProjectActionButtons codeLink={project.codeLink} websiteLink={project.websiteLink} />
+            <ProjectActionButtons
+              codeLink={project.codeLink}
+              websiteLink={project.websiteLink}
+            />
           </div>
-          <div className="flex items-center justify-center w-[58%] h-full bg-gradient-to-br from-[#23221f] to-[#191917] rounded-r-2xl overflow-y-auto overflow-x-hidden border-l border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.2)] custom-scrollbar-modal">
+          <div className='flex items-center justify-center w-[58%] h-full bg-gradient-to-br from-[#23221f] to-[#191917] rounded-r-2xl overflow-y-auto overflow-x-hidden border-l border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.2)] custom-scrollbar-modal'>
             <img
               src={previewWireframe}
               alt={`Preview of ${project.title}`}
-              className="w-full object-contain scale-105 opacity-95"
+              className='w-full object-contain scale-105 opacity-95'
               style={{ maxHeight: 'unset', maxWidth: '100%' }}
             />
           </div>

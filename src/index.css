@@ -145,6 +145,19 @@ body {
   font-family: 'PP Neue Montreal', sans-serif;
 }
 
+/* Custom text selection colors */
+::selection {
+  background: rgba(173, 255, 47, 0.2);
+  color: rgba(173, 255, 47, 1);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: rgba(173, 255, 47, 0.2);
+  color: rgba(173, 255, 47, 1);
+  text-shadow: none;
+}
+
 /**  rotating scroll */
 @keyframes spin {
   100% {
@@ -183,6 +196,16 @@ body {
   display: none;
 }
 
+/* Hide scrollbar but allow scrolling */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
 /* Custom scrollbar for modal image area */
 .custom-scrollbar-modal {
   scrollbar-width: thin;
@@ -203,6 +226,38 @@ body {
 .custom-scrollbar-modal::-webkit-scrollbar-track {
   background: #23221f;
   border-radius: 8px;
+}
+
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(23, 23, 23, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(176, 229, 124, 0.4);
+  border-radius: 4px;
+  border: 1px solid rgba(176, 229, 124, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(176, 229, 124, 0.6);
+  border-color: rgba(176, 229, 124, 0.4);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(23, 23, 23, 0.3);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(176, 229, 124, 0.4) rgba(23, 23, 23, 0.3);
 }
 
 /* Magnetic hover effect for ultra-premium feel */
@@ -278,6 +333,121 @@ body {
     -moz-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;
+  }
+}
+
+/* Small mobile devices (320px and below) */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .hero-section {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  
+  /* Navigation optimizations */
+  nav {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  
+  nav a {
+    font-size: 13px !important;
+    padding: 6px 8px !important;
+    min-height: 40px !important;
+    min-width: 40px !important;
+  }
+  
+  /* Hero title adjustments */
+  h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Button adjustments */
+  button {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+  }
+  
+  /* Contact button */
+  .premium-contact-btn {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+  }
+  
+  /* Project cards for small screens */
+  .project-card-snap {
+    width: 95vw !important;
+    min-height: 420px !important;
+    max-height: 500px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Modal adjustments */
+  .modal-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Form fields */
+  input, textarea {
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Spacing adjustments */
+  .gap-4 {
+    gap: 0.75rem !important;
+  }
+  
+  .gap-6 {
+    gap: 1rem !important;
+  }
+  
+  .gap-8 {
+    gap: 1.25rem !important;
+  }
+  
+  /* Padding reductions */
+  .p-4 {
+    padding: 0.75rem !important;
+  }
+  
+  .p-6 {
+    padding: 1rem !important;
+  }
+  
+  .p-8 {
+    padding: 1.25rem !important;
+  }
+  
+  /* Margin reductions */
+  .m-4 {
+    margin: 0.75rem !important;
+  }
+  
+  .m-6 {
+    margin: 1rem !important;
+  }
+  
+  .m-8 {
+    margin: 1.25rem !important;
   }
 }
 
@@ -457,4 +627,307 @@ body {
 .hero-btn-primary:hover .hero-btn-icon,
 .hero-btn-secondary:hover .hero-btn-icon {
   transform: scale(1.1);
+}
+
+/* Scroll hint indicator for projects section */
+.projects-scroll-hint {
+  position: relative;
+}
+
+.projects-scroll-hint::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(90deg, transparent 0%, rgba(25, 25, 23, 0.6) 40%, rgba(25, 25, 23, 0.9) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.projects-scroll-hint::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(270deg, transparent 0%, rgba(25, 25, 23, 0.6) 40%, rgba(25, 25, 23, 0.9) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Projects section responsive design improvements */
+.projects-container {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 24px;
+}
+
+.project-card-snap {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Touch improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .projects-horizontal-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  
+  .projects-scroll-hint::before,
+  .projects-scroll-hint::after {
+    width: 60px;
+  }
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 640px) {
+  .projects-scroll-hint::before,
+  .projects-scroll-hint::after {
+    width: 40px;
+  }
+}
+
+/* Extra small mobile devices (320px and below) */
+@media (max-width: 320px) {
+  .projects-scroll-hint::before,
+  .projects-scroll-hint::after {
+    width: 20px;
+  }
+  
+  .projects-scroll-container > div {
+    gap: 1rem !important;
+  }
+  
+  .projects-scroll-container {
+    scroll-padding: 0 50vw !important;
+    min-height: 600px !important;
+  }
+}
+
+/* Smooth horizontal scrolling for projects section */
+
+/* Better spacing between project cards */
+.projects-scroll-container > div {
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .projects-scroll-container > div {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-scroll-container > div {
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-scroll-container > div {
+    gap: 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-scroll-container > div {
+    gap: 6rem;
+  }
+}
+
+/* Line clamp utilities for better text display */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Improved project card layout */
+.project-card-snap {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* Better scrolling for project container */
+.projects-scroll-container {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 50vw;
+  min-height: 750px;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive project card sizing */
+@media (max-width: 320px) {
+  .project-card-snap {
+    width: 95vw !important;
+    min-height: 420px !important;
+    max-height: 500px !important;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 640px) {
+  .project-card-snap {
+    width: 85vw !important;
+    min-height: 480px !important;
+    max-height: 580px !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .project-card-snap {
+    width: 75vw !important;
+    min-height: 520px !important;
+    max-height: 620px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-card-snap {
+    width: 65vw !important;
+    min-height: 560px !important;
+    max-height: 660px !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .project-card-snap {
+    width: 55vw !important;
+    min-height: 600px !important;
+    max-height: 700px !important;
+  }
+}
+
+@media (min-width: 1281px) {
+  .project-card-snap {
+    width: 45vw !important;
+    min-height: 640px !important;
+    max-height: 740px !important;
+  }
+}
+
+/* Custom cursor */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+body {
+  cursor: none !important;
+}
+
+.custom-cursor-arrow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 10000;
+  color: rgba(255, 255, 255, 1);
+  will-change: transform;
+}
+
+a, button, [role="button"], input, textarea, select, 
+img, svg, .cursor-pointer, .cursor-grab, .cursor-grabbing,
+div[class*="scroll"], div[class*="project"], 
+.project-card-snap, .project-card-snap *,
+.hero-btn-primary, .hero-btn-secondary {
+  cursor: none !important;
+}
+
+/* Remove all default cursors with higher specificity */
+* {
+  cursor: none !important;
+}
+
+body * {
+  cursor: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: none !important;
+}
+
+.project-card-snap img,
+.project-card-snap svg,
+.project-card-snap button,
+.project-card-snap a {
+  cursor: none !important;
+}
+
+/* Contact form mobile improvements */
+@media (max-width: 640px) {
+  /* Contact modal improvements for mobile */
+  .fixed.inset-0 {
+    padding: 1rem !important;
+  }
+  
+  /* Contact form fields mobile */
+  .form input,
+  .form textarea,
+  .form select {
+    font-size: 16px !important;
+    padding: 0.875rem 1rem !important;
+  }
+  
+  /* Contact modal height adjustments */
+  .contact-modal {
+    max-height: 90vh !important;
+    height: auto !important;
+  }
+  
+  /* Submit button spacing */
+  button[type="submit"] {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Form container padding */
+  .flex-1.overflow-y-auto {
+    padding-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 320px) {
+  /* Contact form specific for 320px */
+  .fixed.inset-0 {
+    padding: 0.5rem !important;
+  }
+  
+  .form input,
+  .form textarea,
+  .form select {
+    font-size: 16px !important;
+    padding: 0.75rem 0.875rem !important;
+  }
+  
+  /* Responsive headings for mobile 320px */
+  .projects-title h2,
+  .about-title h2,
+  .skills-title h2 {
+    font-size: clamp(2.5rem, 15vw, 3.5rem) !important;
+  }
+  
+  /* Footer CTA responsive text */
+  .footer-cta {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .footer-cta-secondary {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
 }
